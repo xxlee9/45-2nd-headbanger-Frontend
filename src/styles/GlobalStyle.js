@@ -1,8 +1,13 @@
-// 공통으로 사용하는 scss (common)
 import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
-const GlobalStyle = () => {
-  return <div>GlobalStyle</div>;
-};
+const GlobalStyle = createGlobalStyle`
+${reset}
+  * {
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+`;
 
 export default GlobalStyle;

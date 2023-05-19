@@ -1,8 +1,10 @@
-// 반복적으로 사용하는 css 속성 (veriables)
-import React from 'react';
-
-const theme = () => {
-  return <div>theme</div>;
+const theme = {
+  black: '#000000',
+  white: '#FFFFFF',
+  lightGrey: '#B0B0B0',
+  middleGrey: '#717171',
+  deepGrey: '#222222',
+  hoverGrey: '#DBDBDB',
 };
 
 export default theme;

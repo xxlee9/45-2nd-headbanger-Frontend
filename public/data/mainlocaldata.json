@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "count": 100,
+    "name": "수도권",
+    "category": "Metropolitan area",
+    "image": "/images/Main/Metropolitan area.png"
+  },
+
+  {
+    "id": 2,
+    "count": 42,
+    "name": "강원도",
+    "category": "Gangwon-do",
+    "image": "/images/Main/Gangwondo.png"
+  },
+
+  {
+    "id": 3,
+    "count": 971,
+    "name": "충청도",
+    "category": "Chungcheongdo",
+    "image": "/images/Main/Chungcheong-do.png"
+  },
+
+  {
+    "id": 4,
+    "count": 265,
+    "name": "전라도",
+    "category": "Jeolla-do",
+    "image": "/images/Main/Jeolla-do.png"
+  },
+
+  {
+    "id": 5,
+    "count": 308,
+    "name": "경상도",
+    "category": "Gyeongsang-do",
+    "image": "/images/Main/Gyeongsang-do.png"
+  },
+
+  {
+    "id": 6,
+    "count": 43,
+    "name": "제주도",
+    "category": "Jejudo",
+    "image": "/images/Main/Jejudo.png"
+  }
+]

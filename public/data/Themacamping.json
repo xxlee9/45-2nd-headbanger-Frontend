@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "도심",
+    "category": "downtown",
+    "image": "images/Main/downtown.png"
+  },
+
+  {
+    "id": 2,
+    "name": "산",
+    "category": "mountain",
+    "image": "images/Main/mountain.png"
+  },
+
+  {
+    "id": 3,
+    "name": "바다",
+    "category": "ocean",
+    "image": "images/Main/ocean.png"
+  },
+
+  {
+    "id": 4,
+    "name": "호수",
+    "category": "lake",
+    "image": "images/Main/lake.png"
+  }
+]

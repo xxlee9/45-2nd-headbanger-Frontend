@@ -18,6 +18,10 @@
     "react-scripts": "5.0.1",
     "react-spring": "^9.7.1",
     "redux": "^4.2.1",
+    "react-slick": "^0.29.0",
+    "react-spring": "^9.7.1",
+    "redux": "^4.2.1",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.10",
     "styled-reset": "^4.4.7",
     "web-vitals": "^2.1.4"

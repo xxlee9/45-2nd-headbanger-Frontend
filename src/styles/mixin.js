@@ -11,6 +11,7 @@ export const flexSort = (justifyContent, alignItems) => css`
   justify-content: ${justifyContent};
   align-items: ${alignItems};
 `;
+
 export const boxSize = (width, height) => css`
   width: ${width}px;
   height: ${height}px;

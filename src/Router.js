@@ -8,8 +8,8 @@ import Mypage from './pages/Mypage/Mypage';
 import Payment from './pages/Payment/Payment';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import ProductsList from './pages/ProductsList/ProductsList';
-import Signup from './pages/Signup/Signup';
 import Footer from './components/Footer/Footer';
+import Auth from './pages/Login/components/Auth';
 
 const Router = () => {
   return (
@@ -22,7 +22,7 @@ const Router = () => {
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/productdetail" element={<ProductDetail />} />
-        <Route path="/productslist" element={<ProductsList />} />
+        <Route path="/productlist" element={<ProductsList />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />

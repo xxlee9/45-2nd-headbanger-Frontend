@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { flexSort } from '../../../styles/mixin';
+import { flexSort, fontMix } from '../../../styles/mixin';
 
 const KakaoMap = props => {
   const { clickModal } = props;
@@ -16,22 +16,26 @@ const KakaoMap = props => {
 const MapImage = styled.div`
   width: 240px;
   height: 140px;
-  background-color: ${props => props.theme.mainYellow};
+  border-radius: 12px;
   margin-bottom: 16px;
   align-items: center;
   display: flex;
   justify-content: center;
+  background-image: url('../images/Map/mapEntry.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const MapButton = styled.button`
   ${flexSort('center', 'center')}
-  text-align: center;
-  width: 80px;
-  height: 30px;
-  border-radius: 11px;
-  background: whitesmoke;
+  width: 90px;
+  ${fontMix(13)}
+  height: 36px;
+  border-radius: 12px;
+  background-color: #ebebd2;
   outline: none;
   border: none;
+  color: ${props => props.theme.mainBlack};
 `;
 
 export default KakaoMap;

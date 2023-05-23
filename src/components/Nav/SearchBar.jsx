@@ -10,7 +10,7 @@ const SearchBar = () => {
           <LocationButton>장소</LocationButton>
           <CheckInButton>체크 인 날짜</CheckInButton>
           <CheckoutButton>체크 아웃 날짜</CheckoutButton>
-          <SearchButton>Search</SearchButton>
+          <SearchButton>검색</SearchButton>
         </SearchBarWrap>
       </SearchBarContainer>
     </SearchBarBackground>
@@ -22,7 +22,9 @@ const SearchBarBackground = styled.div`
   align-items: center;
   width: 100%;
   height: 60px;
-  background-color: ${props => props.theme.mainYellow};
+  border: none;
+  outline: none;
+  background-color: #658864;
 `;
 
 const SearchBarContainer = styled.div`
@@ -31,7 +33,6 @@ const SearchBarContainer = styled.div`
 `;
 
 const SearchBarWrap = styled.div`
-  border: 1px solid ${props => props.theme.mainYellow};
   height: 46px;
 `;
 
@@ -44,9 +45,11 @@ const LocationButton = styled.button`
   ${fontMix(14, 'black')}
   cursor: pointer;
   background-color: #fff;
+  border-radius: 14px;
 `;
 
 const CheckInButton = styled.button`
+  border-radius: 14px;
   width: 30%;
   height: 100%;
   padding: 0 8px;
@@ -55,7 +58,7 @@ const CheckInButton = styled.button`
   cursor: pointer;
   ${fontMix(14, 'black')}
   background-color: #fff;
-  border-left: 6px solid ${props => props.theme.mainYellow};
+  margin-left: 6px;
 `;
 
 const CheckoutButton = styled.button`
@@ -65,23 +68,23 @@ const CheckoutButton = styled.button`
   padding: 0 8px;
   border: none;
   outline: none;
-  background-color: #fff;
-
   cursor: pointer;
-  border-left: 6px solid ${props => props.theme.mainYellow};
-  border-right: 6px solid ${props => props.theme.mainYellow};
+  background-color: #fff;
+  border-radius: 14px;
+  margin-left: 6px;
 `;
 
 const SearchButton = styled.button`
-  width: 10%;
+  width: 8%;
   height: 100%;
   border: none;
   outline: none;
   background-color: ${props => props.theme.mainBlack};
-  ${fontMix(14, 'white')}
-  font-size: 16px;
+  border-radius: 14px;
+  font-size: ${fontMix(14, 'white')};
   padding: 0 16px;
   cursor: pointer;
+  margin-left: 6px;
 `;
 
 export default SearchBar;

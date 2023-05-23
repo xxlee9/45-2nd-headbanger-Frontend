@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 const { kakao } = window;
 
-const KakaoModal = () => {
+const KakaoModal = props => {
+  const { clickModal } = props;
+
   const lat = 33.450701;
   const lon = 126.570667;
 
@@ -31,7 +33,7 @@ const KakaoModal = () => {
 
     let coords = new kakao.maps.LatLng(lat, lon);
 
-    const imageSrc = '/images/map/tent.png',
+    const imageSrc = '/images/Map/mapImg.png',
       imageSize = new kakao.maps.Size(60, 60),
       imageOption = { offset: new kakao.maps.Point(27, 69) };
 
@@ -67,11 +69,11 @@ const KakaoModal = () => {
 export default KakaoModal;
 
 const ModalBox = styled.div`
-  width: 800px;
+  width: 1100px;
 `;
 
 const Location = styled.div`
   width: 100%;
   height: 40vw;
-  border: 0.5px solid #dddddd;
+  border: 0.5px solid ${props => props.theme.hoverGrey};
 `;

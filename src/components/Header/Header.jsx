@@ -36,7 +36,7 @@ const Navbar = () => {
             <NavLink onClick={handleLogout}>로그아웃</NavLink>
           </>
         ) : (
-          <NavLink onClick={handleLogin}>로그인 / 회원가입</NavLink>
+          <NavLink onClick={handleLogin}>로그인</NavLink>
         )}
       </UserBlock>
     </Nav>

@@ -1,19 +1,25 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import KakaoSocialLogin from './components/KakaoSocialLogin';
-import { boxSize, fontMix, flexSort } from '../../styles/mixin';
+import { fontMix, flexSort, boxSize } from '../../styles/mixin';
 
 const Login = () => {
   return (
     <StyledLogin>
       <LoginContent>
-        <LoginTitle>
-          <CvgLogo />
-          로그인 및 회원가입
-        </LoginTitle>
-        <InputEmail type="email" placeholder="이메일을 입력해주세요." />
-        <VerifyButton onClick="/">이메일로 계속하기</VerifyButton>
+        <LoginBox>
+          <Logo />
+          <LoginTitle>
+            <span>
+              진짜 나다운 캠핑<span>을</span>
+            </span>
+            <div>시작 해보세요!</div>
+          </LoginTitle>
+        </LoginBox>
         <KakaoSocialLogin />
+        <Naver>
+          <NaverLoginButton />
+        </Naver>
       </LoginContent>
     </StyledLogin>
   );
@@ -21,77 +27,82 @@ const Login = () => {
 
 export default Login;
 
-const CvgLogo = styled.div`
-  background-image: url('../images/Login/logo.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 43px;
-  height: 43px;
-  display: flex;
-  margin-right: 13px;
-`;
-
 const StyledLogin = styled.div`
   ${flexSort('center', 'center')}
   flex-direction: column;
+  width: 100%;
   height: 100vh;
 `;
 
 const LoginContent = styled.div`
   ${flexSort('flex-start', 'center')}
   flex-direction: column;
-  width: 460px;
-  padding: 10px;
+  width: 420px;
+  height: 420px;
+`;
+
+const LoginBox = styled.div`
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const rotateAnimation = keyframes`
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: ease;
+  }
+  100% {
+    transform: rotate(360deg);
+    animation-timing-function: ease-in;
+  }
+`;
+
+const Logo = styled.div`
+  width: 60px;
+  height: 60px;
   margin: 0 auto;
+  background-image: url('../images/Login/cvgLogo.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: ${rotateAnimation} 6s linear infinite;
+  transform-origin: 50% 50%;
 `;
 
 const LoginTitle = styled.div`
-  ${fontMix(26, 'black')}
+  width: 350px;
+  flex-direction: column;
+  text-align: center;
+  line-height: 36px;
+  margin-top: 17px;
+  margin-bottom: 54px;
+  ${fontMix(26, 'black')};
   ${flexSort('center', 'center')};
-  margin-right: 34%;
   color: ${props => props.theme.mainBlack};
+
+  > span {
+    color: #68a67d;
+    display: inline;
+  }
+
+  > span > span {
+    color: #252525;
+  }
 `;
 
-const VerifyButton = styled.button`
-  ${boxSize(400, 46)};
-  background-color: ${props => props.theme.mainBlack};
-  color: ${props => props.theme.white};
-  font-size: 14px;
-  border-radius: 10px;
-  margin-top: 22px;
+const Naver = styled.div`
+  ${boxSize(380, 57)};
+`;
+
+const NaverLoginButton = styled.button`
+  ${boxSize(380, 57)};
+  background-image: url('/images/Login/naverBtn.svg');
   border: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 8px;
+  margin-top: 9px;
   &:hover {
-    background-color: black;
     cursor: pointer;
-  }
-`;
-
-const InputEmail = styled.input`
-  ${boxSize(400, 46)};
-  ${fontMix(13, props => props.theme.deepGrey)};
-  margin-top: 50px;
-  padding-left: 12px;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  outline: none;
-  position: relative;
-
-  &:focus {
-    border-bottom-color: #ccc;
-  }
-
-  &::placeholder {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 12px;
-    font-size: 13px;
-    color: #ccc;
-    transition: top 0.2s ease-out;
-  }
-
-  &:focus::placeholder {
-    top: -30px;
-    font-size: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 `;

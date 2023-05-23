@@ -1,30 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
+import styled from 'styled-components';
 import KakaoMap from './components/KakaoMap';
 import SearchBar from '../../components/Nav/SearchBar';
-import SearchInput from './components/SearchInput';
+import SearchCamp from './components/SearchCamp';
 import FilterBox from './components/FilterBox';
 import SortByBox from './components/SortByBox';
 import ImagesContainer from './components/ImagesContainer';
 import KakaoModal from './components/KakaoModal';
-import styled from 'styled-components';
+import SiteBanner from './components/SiteBanner';
+import { PRODUCT_LIST_API } from '../../../src/config';
 import { flexSort } from '../../styles/mixin';
 
 const ProductsList = () => {
-  const PRODUCT_LIST_API = 'http://10.58.52.241:3000';
   const [product, setProduct] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams([]);
+  const [searchParams, setSearchParams] = useSearchParams();
   const { id } = useParams();
   const [showModal, setShowModal] = useState(false);
   const clickModal = () => setShowModal(!showModal);
 
   useEffect(() => {
-    fetch(`${PRODUCT_LIST_API}/products?${searchParams.toString()}`)
-      .then(response => response.json())
-      .then(response => {
-        setProduct(response.data);
-      });
+    const fetchProducts = async () => {
+      try {
+        const queryString = searchParams.toString();
+
+        const response = await fetch(
+          `${PRODUCT_LIST_API}/products?${queryString}`
+        );
+        const data = await response.json();
+
+        setProduct(data.result);
+      } catch (error) {}
+    };
+
+    fetchProducts();
   }, [id, searchParams]);
+
+  useEffect(() => {
+    setSearchParams(new URLSearchParams());
+  }, []);
 
   return (
     <Wrap>
@@ -37,12 +51,17 @@ const ProductsList = () => {
       <ContainerAll>
         <LeftSideContainer>
           <KakaoMap clickModal={clickModal} />
-          <SearchInput />
-          <FilterBox />
+          <SearchCamp product={product} />
+          <FilterBox product={product} />
         </LeftSideContainer>
         <RightSideContainer>
+          <SiteBanner />
           <SortByBox />
-          <ImagesContainer product={product} id={id} />
+          <ImagesContainer
+            product={product}
+            id={id}
+            searchParams={searchParams}
+          />
         </RightSideContainer>
       </ContainerAll>
     </Wrap>
@@ -51,21 +70,21 @@ const ProductsList = () => {
 
 const Wrap = styled.div`
   width: 100%;
-  margin: 0 auto;
   height: 100%;
+  margin: 0 auto;
 `;
 
 const ContainerAll = styled.div`
+  ${flexSort('center', 'start')}
   width: 100%;
   max-width: 1100px;
   height: 100%;
-  ${flexSort('center', 'start')}
   margin: 0 auto;
   position: relative;
   top: 80px;
 `;
 const FeedModal = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
@@ -81,7 +100,6 @@ const LeftSideContainer = styled.div`
   width: 30%;
   position: sticky;
   top: 0;
-  left: 0;
 `;
 
 const RightSideContainer = styled.div`

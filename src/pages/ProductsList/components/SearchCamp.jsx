@@ -1,50 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
-import axios from 'axios';
 import { boxSize, fontMix } from '../../../styles/mixin';
 
-const SearchInput = () => {
+const SearchCamp = ({ product }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [campingData, setCampingData] = useState([]);
+  const [filteredCampingData, setFilteredCampingData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleSearchChange = event => {
     setSearchTerm(event.target.value);
   };
 
-  const fetchCampingData = async () => {
-    try {
-      const response = await axios.get('../data/campData.json');
-      return response.data;
-    } catch (error) {
-      return [];
-    }
+  const handleSearchSubmit = () => {
+    searchParams.set('campName', searchTerm);
+    setSearchParams(searchParams);
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchCampingData();
-      setCampingData(data);
-    };
-    fetchData();
-  }, []);
-
-  const handleSearchSubmit = () => {
-    searchParams.set('searchKeyword', searchTerm);
-    setSearchParams(searchParams);
-    const checkedOptions = campingData
-      .filter(campsite => searchParams.has(campsite.id))
-      .map(campsite => campsite.id);
-  };
-  const filteredCampingData = campingData.filter(campsite =>
-    campsite.campsite_name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+    if (product) {
+      const filteredData = product?.filter(campsite =>
+        campsite.campsite_name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredCampingData(filteredData.slice(0, 6));
+    }
+  }, [product, searchTerm]);
 
   return (
     <>
       <SearchCampingInput
-        placeholder="캠핑장 검색"
+        placeholder="다음 여행지는 어디신가요?"
         value={searchTerm}
         onChange={handleSearchChange}
       />
@@ -61,18 +46,18 @@ const SearchInput = () => {
 
 const SearchCampingInput = styled.input`
   ${boxSize(240, 40)}
-  ${fontMix(14)}
+  ${fontMix(13, props => props.theme.deepGrey)}
   margin: 0 auto;
   outline: none;
   border: none;
-  padding-left: 16px;
+  padding: 0 0 0 16px;
+  border-radius: 12px;
   color: ${props => props.theme.deepGrey};
-  background-color: ${props => props.theme.inputGrey};
+  background-color: #f5efe7;
 `;
 
 const SearchBtn = styled.button`
-  width: 24px;
-  height: 24px;
+  ${boxSize(22, 22)}
   cursor: pointer;
   position: absolute;
   margin-left: -34px;
@@ -81,16 +66,14 @@ const SearchBtn = styled.button`
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url('../images/ProductsList/search.png');
+  background-color: #f5efe7;
 `;
 
 const Camp = styled.div`
-  width: 240px;
-  outline: none;
-  border: none;
-  color: ${props => props.theme.deepGrey};
+  ${boxSize(240)}
+  ${fontMix(12, 252525)} 
   padding: 10px 0px 12px 16px;
-  background-color: ${props => props.theme.inputGrey};
-  ${fontMix(14)}
+  background-color: rgba(245, 239, 231, 0.2);
 `;
 
-export default SearchInput;
+export default SearchCamp;

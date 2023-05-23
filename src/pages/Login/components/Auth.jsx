@@ -27,9 +27,8 @@ const Auth = () => {
       if (response.ok) {
         const data = await response.json();
         const jwtToken = data.webToken;
-
         window.localStorage.setItem('token', jwtToken);
-        navigate('/main');
+        navigate('/');
       } else {
       }
     } catch (error) {}
@@ -53,7 +52,7 @@ const Auth = () => {
         exchangeKakaoToken(receivedAccessToken);
       })
       .catch(error => {
-        navigate('/main');
+        navigate('/');
       });
   }, []);
 

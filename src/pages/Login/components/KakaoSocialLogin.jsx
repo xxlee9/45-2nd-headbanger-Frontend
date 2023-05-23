@@ -9,23 +9,20 @@ const KakaoSocialLogin = () => {
     window.location.href = KAKAO_AUTH_URL;
   };
 
-  return (
-    <KakaoLoginButton onClick={handleSocialLogin}>
-      카카오 계정으로 시작하기
-    </KakaoLoginButton>
-  );
+  return <KakaoLoginButton onClick={handleSocialLogin} />;
 };
 
 export default KakaoSocialLogin;
 
 const KakaoLoginButton = styled.button`
-  ${boxSize(400, 46)};
-  ${fontMix(14, props => props.theme.mainYellow)};
-  background-color: #fee500;
+  ${boxSize(380, 57)};
+  background-image: url('../images/Login/kakao_login_large_wide.png');
+  background-repeat: no-repeat;
+  background-size: contain;
   border: none;
-  border-radius: 10px;
-  margin-top: 11px;
+  border-radius: 8px;
   &:hover {
     cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 `;

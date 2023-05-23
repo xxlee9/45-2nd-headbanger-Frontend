@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { fontMix } from '../../../styles/mixin';
 
 const OptionChecked = ({ item: { id, category, type, content } }) => {
   const [checked, setChecked] = useState(false);
@@ -22,36 +21,53 @@ const OptionChecked = ({ item: { id, category, type, content } }) => {
   }, [checked]);
 
   return (
-    <OptionCheckedBox>
-      <input
+    <OptionCheckedBoxWrapper>
+      <OptionCheckedBox
         type="checkbox"
         id={type}
         name={type}
         checked={checked}
         onChange={() => setChecked(prev => !prev)}
       />
-      <label htmlFor={type}>{content}</label>
-    </OptionCheckedBox>
+      <OptionCheckedBoxLabel htmlFor={type}>{content}</OptionCheckedBoxLabel>
+    </OptionCheckedBoxWrapper>
   );
 };
 
-const OptionCheckedBox = styled.div`
-  ${fontMix(16, 'black')}
-  display: block;
-  margin-bottom: 6px;
+const OptionCheckedBoxWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+`;
 
-  input {
-    //appearance: none;
-    width: 12px;
-    height: 12px;
-    background-color: lightgrey;
+const OptionCheckedBox = styled.input`
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 1px solid #ebebd2;
+  margin-right: 8px;
+  cursor: pointer;
+
+  &:checked {
+    background-color: #ebebd2;
+    border-color: #c2c2aa;
+    &::after {
+      content: '✔';
+      font-size: 12px;
+      margin-left: 2px;
+      color: #24613b;
+    }
   }
+`;
 
-  label {
-    font-size: 14px;
-    margin-left: 8px;
+const OptionCheckedBoxLabel = styled.label`
+  font-size: 14px;
+  cursor: pointer;
 
-    cursor: pointer;
+  &:checked + ::after {
+    content: '✔';
+    font-size: 12px;
   }
 `;
 

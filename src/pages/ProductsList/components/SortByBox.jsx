@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { flexSort } from '../../../styles/mixin';
+import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 
 const SortByBox = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,10 @@ const SortByBox = () => {
 
   return (
     <SortByFilter>
-      <SortBy onClick={toggleDropdown}>Sort by</SortBy>
+      <SortBy onClick={toggleDropdown}>
+        <SortByText>정렬 기준</SortByText>
+        {isOpen ? <CaretUpIcon /> : <CaretDownIcon />}
+      </SortBy>
       <Dropdown isOpen={isOpen}>
         {SORT_MENU.map(({ id, content, sort }) => (
           <DropdownOption key={id} onClick={() => handleSort(sort)}>
@@ -32,64 +36,90 @@ const SortByBox = () => {
 
 const SortByFilter = styled.div`
   ${flexSort('flex-end', 'center')}
-  padding-top: 60px;
+  padding-top: 16px;
   position: relative;
 `;
 
 const SortBy = styled.button`
-  padding: 8px 16px;
-  background-color: #f1f1f1;
+  position: relative;
+  background-color: #ebebd2;
   border: none;
-  border-radius: 4px;
+  width: 100px;
+  height: 38px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+`;
 
-  &:hover {
-    background-color: #e1e1e1;
-  }
+const SortByText = styled.span`
+  margin-right: 8px;
 `;
 
 const Dropdown = styled.div`
   display: ${props => (props.isOpen ? 'block' : 'none')};
   position: absolute;
-  top: 110px;
+  top: 65px;
+  width: 120px;
   right: 0;
-  background-color: ${props => props.theme.mainYellow};
-  border-radius: 4px;
-  padding: 8px;
+  background-color: #c2c2aa;
+  border-radius: 12px;
+  padding: 3px 3.5px;
   z-index: 1;
 
   &::before {
     content: '';
     position: absolute;
-    top: -8px;
+    top: -7px;
     right: 10px;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid ${props => props.theme.mainYellow};
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #c2c2aa;
   }
 `;
 
 const DropdownOption = styled.button`
   display: flex;
+  align-items: center;
   justify-content: center;
   background-color: white;
   padding: 8px 16px;
-  border: none;
+  border: 3px solid #c2c2aa;
   outline: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  width: 100px;
+  font-size: 13px;
+  width: 113px;
+  border-radius: 12px;
+  transition: transform 0.2s, background-color 0.2s;
 
   &:hover {
-    background-color: #f1f1f1;
+    background-color: #fefef8;
+    transform: scale(1.01);
+  }
+`;
+
+const CaretDownIcon = styled(CaretDownOutlined)`
+  transition: transform 0.3s;
+
+  ${SortByText}:hover & {
+    transform: rotate(180deg);
+  }
+`;
+
+const CaretUpIcon = styled(CaretUpOutlined)`
+  transition: transform 0.3s;
+
+  ${SortByText}:hover & {
+    transform: rotate(180deg);
   }
 `;
 
 export default SortByBox;
 
 const SORT_MENU = [
-  { id: 0, content: '인기순', sort: 'liked' },
-  { id: 1, content: '가격순', sort: 'priceDesc' },
+  { id: 0, content: '인기순', sort: 'wishDesc' },
+  { id: 1, content: '높은 가격순', sort: 'priceDesc' },
+  { id: 2, content: '낮은 가격순', sort: 'priceAsc' },
 ];

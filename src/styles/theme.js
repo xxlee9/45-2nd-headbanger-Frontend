@@ -3,6 +3,7 @@ const theme = {
   mainBlack: '#2B2B2B',
   white: '#E4E2DD',
   lightGrey: '#B0B0B0',
+  inputGrey: '#F2F2F2',
   middleGrey: '#717171',
   deepGrey: '#222222',
   hoverGrey: '#DBDBDB',

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "1",
+    "campsite_name": "캠핑장",
+    "price": "50.00",
+    "address": "123 Main St, City",
+    "thumbnail": "https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    "region_name": "서울",
+    "amenity": ["편의점", "화장실"],
+    "theme": "산"
+  },
+  {
+    "id": "2",
+    "campsite_name": "시티뷰 캠핑장",
+    "price": "60.00",
+    "address": "456 Second St, City",
+    "thumbnail": "https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    "region_name": "경기도",
+    "amenity": ["식당", "운동시설"],
+    "theme": "호수"
+  },
+  {
+    "id": "3",
+    "campsite_name": "마운틴 뷰 캠핑장",
+    "price": "70.00",
+    "address": "789 Third St, City",
+    "thumbnail": "https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    "region_name": "강원도",
+    "amenity": ["야영장", "수영장"],
+    "theme": "숲"
+  },
+  {
+    "id": "4",
+    "campsite_name": "강릉 캠핑장",
+    "price": "80.00",
+    "address": "987 Fourth St, City",
+    "thumbnail": "https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    "region_name": "전라도",
+    "amenity": ["야외활동", "낚시터"],
+    "theme": "강"
+  },
+  {
+    "id": "5",
+    "campsite_name": "바다 캠핑장",
+    "price": "90.00",
+    "address": "654 Fifth St, City",
+    "thumbnail": "https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    "region_name": "경상도",
+    "amenity": ["숲속산책로", "놀이터"],
+    "theme": "산"
+  },
+  {
+    "id": "6",
+    "campsite_name": "오션뷰 캠핑장",
+    "price": "100.00",
+    "address": "321 Sixth St, City",
+    "thumbnail": "https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    "region_name": "충청도",
+    "amenity": ["야영장", "운동장"],
+    "theme": "호수"
+  },
+  {
+    "id": "8",
+    "campsite_name": "선릉 캠핑장",
+    "price": "110.00",
+    "address": "987 Seventh St, City",
+    "thumbnail": "https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    "region_name": "경상도",
+    "amenity": ["상점", "바베큐장"],
+    "theme": "바다"
+  },
+  {
+    "id": "9",
+    "campsite_name": "위워크 캠핑장",
+    "price": "120.00",
+    "address": "654 Eighth St, City",
+    "thumbnail": "https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    "region_name": "전라도",
+    "amenity": ["야영장", "산책로"],
+    "theme": "숲"
+  },
+  {
+    "id": "10",
+    "campsite_name": "위코드 캠핑장",
+    "price": "130.00",
+    "address": "321 Ninth St, City",
+    "thumbnail": "https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    "region_name": "강원도",
+    "amenity": ["식당", "수영장"],
+    "theme": "호수"
+  }
+]

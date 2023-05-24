@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "camp": "위코드 캠핑장",
+    "thumbnail": "https://picsum.photos/200/250",
+    "startDate": "06.01",
+    "endDate": "06.05",
+    "zone": "A-2",
+    "peopleCount": "4",
+    "totalPrice": "50000"
+  },
+  {
+    "id": 2,
+    "camp": "우리 캠핑장",
+    "thumbnail": "https://picsum.photos/200/250",
+    "startDate": "06.25",
+    "endDate": "06.27",
+    "zone": "B-5",
+    "peopleCount": "6",
+    "totalPrice": "70000"
+  },
+  {
+    "id": 3,
+    "camp": "너네 캠핑장",
+    "thumbnail": "https://picsum.photos/200/250",
+    "startDate": "07.01",
+    "endDate": "07.05",
+    "zone": "C-2",
+    "peopleCount": "8",
+    "totalPrice": "100000"
+  },
+  {
+    "id": 4,
+    "camp": "걔네 캠핑장",
+    "thumbnail": "https://picsum.photos/200/250",
+    "startDate": "08.01",
+    "endDate": "08.05",
+    "zone": "A-5",
+    "peopleCount": "2",
+    "totalPrice": "50000"
+  }
+]

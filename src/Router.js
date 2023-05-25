@@ -20,20 +20,15 @@ const Router = () => {
     <BrowserRouter>
       <Header />
       <Nav />
-      <NiceModal.Provider>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Main />} />
-          <Route path="/mypage" element={<Mypage />} />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/productdetail" element={<ProductDetail />} />
-          <Route path="/productslist" element={<ProductsList />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/paying" element={<Paying />} />
-          <Route path="/payfail" element={<PayFail />} />
-          <Route path="/paycancel" element={<PayCancel />} />
-        </Routes>
-      </NiceModal.Provider>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/mypage" element={<Mypage />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/productdetail/:id" element={<ProductDetail />} />
+        <Route path="/productslist" element={<ProductsList />} />
+        <Route path="/auth" element={<Auth />} />
+      </Routes>
       <Footer />
     </BrowserRouter>
   );

@@ -1,0 +1,277 @@
+{
+  "availableZones": [
+    {
+      "campId": 1,
+      "zoneName": "A1",
+      "maxPeople": 2,
+      "coordinates": {
+        "x1": 60,
+        "x2": 60,
+        "x3": 113,
+        "x4": 113,
+        "y1": 70,
+        "y2": 138,
+        "y3": 138,
+        "y4": 70
+      },
+      "campingZoneId": 1,
+      "additionalPrice": 30000,
+      "size": "7x9"
+    },
+    {
+      "campId": 1,
+      "zoneName": "A2",
+      "maxPeople": 3,
+      "coordinates": {
+        "x1": 118,
+        "x2": 118,
+        "x3": 165,
+        "x4": 165,
+        "y1": 70,
+        "y2": 131,
+        "y3": 131,
+        "y4": 70
+      },
+      "campingZoneId": 2,
+      "additionalPrice": 30000,
+      "size": "8x9"
+    },
+    {
+      "campId": 1,
+      "zoneName": "A3",
+      "maxPeople": 2,
+      "coordinates": {
+        "x1": 171,
+        "x2": 171,
+        "x3": 214,
+        "x4": 214,
+        "y1": 69,
+        "y2": 126,
+        "y3": 126,
+        "y4": 68
+      },
+      "campingZoneId": 3,
+      "additionalPrice": 30000,
+      "size": "9x9"
+    },
+    {
+      "campId": 1,
+      "zoneName": "A4",
+      "maxPeople": 3,
+      "coordinates": {
+        "x1": 219,
+        "x2": 219,
+        "x3": 269,
+        "x4": 269,
+        "y1": 69,
+        "y2": 117,
+        "y3": 117,
+        "y4": 69
+      },
+      "campingZoneId": 4,
+      "additionalPrice": 30000,
+      "size": "7x8"
+    },
+    {
+      "campId": 1,
+      "zoneName": "A5",
+      "maxPeople": 2,
+      "coordinates": {
+        "x1": 273,
+        "x2": 273,
+        "x3": 331,
+        "x4": 331,
+        "y1": 69,
+        "y2": 100,
+        "y3": 100,
+        "y4": 69
+      },
+      "campingZoneId": 5,
+      "additionalPrice": 30000,
+      "size": "8x7"
+    },
+    {
+      "campId": 1,
+      "zoneName": "B1",
+      "maxPeople": 3,
+      "coordinates": {
+        "x1": 139,
+        "x2": 139,
+        "x3": 176,
+        "x4": 176,
+        "y1": 177,
+        "y2": 234,
+        "y3": 234,
+        "y4": 177
+      },
+      "campingZoneId": 6,
+      "additionalPrice": 30000,
+      "size": "9x7"
+    },
+    {
+      "campId": 1,
+      "zoneName": "B2",
+      "maxPeople": 2,
+      "coordinates": {
+        "x1": 182,
+        "x2": 182,
+        "x3": 223,
+        "x4": 223,
+        "y1": 177,
+        "y2": 229,
+        "y3": 229,
+        "y4": 177
+      },
+      "campingZoneId": 7,
+      "additionalPrice": 30000,
+      "size": "7x6"
+    },
+    {
+      "campId": 1,
+      "zoneName": "B3",
+      "maxPeople": 2,
+      "coordinates": {
+        "x1": 230,
+        "x2": 230,
+        "x3": 271,
+        "x4": 271,
+        "y1": 177,
+        "y2": 223,
+        "y3": 223,
+        "y4": 177
+      },
+      "campingZoneId": 8,
+      "additionalPrice": 30000,
+      "size": "7x6"
+    },
+    {
+      "campId": 1,
+      "zoneName": "B4",
+      "maxPeople": 2,
+      "coordinates": {
+        "x1": 277,
+        "x2": 277,
+        "x3": 331,
+        "x4": 331,
+        "y1": 177,
+        "y2": 213,
+        "y3": 213,
+        "y4": 177
+      },
+      "campingZoneId": 9,
+      "additionalPrice": 30000,
+      "size": "7x6"
+    },
+    {
+      "campId": 1,
+      "zoneName": "B5",
+      "maxPeople": 2,
+      "coordinates": {
+        "x1": 344,
+        "y1": 178,
+        "x2": 339,
+        "y2": 214,
+        "x3": 395,
+        "y3": 222,
+        "x4": 401,
+        "y4": 187
+      },
+      "campingZoneId": 10,
+      "additionalPrice": 30000,
+      "size": "7x6"
+    },
+
+    {
+      "campId": 1,
+      "zoneName": "C3",
+      "maxPeople": 3,
+      "coordinates": {
+        "x1": 478,
+        "x2": 496,
+        "x3": 532,
+        "x4": 514,
+        "y1": 243,
+        "y2": 292,
+        "y3": 279,
+        "y4": 231
+      },
+      "campingZoneId": 15,
+      "additionalPrice": 50000,
+      "size": "8x6"
+    }
+  ],
+  "unavailableZones": [
+    {
+      "campId": 1,
+      "zoneName": "B6",
+      "maxPeople": 2,
+      "coordinates": {
+        "x1": 211,
+        "x2": 211,
+        "x3": 251,
+        "x4": 251,
+        "y1": 265,
+        "y2": 292,
+        "y3": 292,
+        "y4": 265
+      },
+      "campingZoneId": 11,
+      "additionalPrice": 30000,
+      "size": "7x6"
+    },
+    {
+      "campId": 1,
+      "zoneName": "B7",
+      "maxPeople": 2,
+      "coordinates": {
+        "x1": 283,
+        "x2": 283,
+        "x3": 332,
+        "x4": 332,
+        "y1": 259,
+        "y2": 285,
+        "y3": 285,
+        "y4": 259
+      },
+      "campingZoneId": 12,
+      "additionalPrice": 30000,
+      "size": "7x6"
+    },
+    {
+      "campId": 1,
+      "zoneName": "C1",
+      "maxPeople": 3,
+      "coordinates": {
+        "x1": 442,
+        "x2": 460,
+        "x3": 490,
+        "x4": 473,
+        "y1": 137,
+        "y2": 185,
+        "y3": 174,
+        "y4": 125
+      },
+      "campingZoneId": 13,
+      "additionalPrice": 50000,
+      "size": "8x6"
+    },
+    {
+      "campId": 1,
+      "zoneName": "C2",
+      "maxPeople": 3,
+      "coordinates": {
+        "x1": 464,
+        "x2": 482,
+        "x3": 512,
+        "x4": 494,
+        "y1": 189,
+        "y2": 236,
+        "y3": 225,
+        "y4": 178
+      },
+      "campingZoneId": 14,
+      "additionalPrice": 50000,
+      "size": "8x6"
+    }
+  ]
+}

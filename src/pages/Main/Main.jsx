@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MainLocal from './components/MainLocal';
 import ThemaCamping from './components/ThemaCamping';
 import Amenities from './components/Amenities';
-import SearchBar from './components/SearchBar';
+import SearchBar from '../../components/Nav/SearchBar';
 import { flexSort } from '../../styles/mixin';
 
 const Main = () => {

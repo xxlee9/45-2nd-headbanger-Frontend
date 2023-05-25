@@ -23,7 +23,7 @@ const ProductsList = () => {
     const fetchProducts = async () => {
       try {
         const queryString = searchParams.toString();
-
+        console.log(queryString);
         const response = await fetch(
           `${PRODUCT_LIST_API}/products?${queryString}`
         );
@@ -36,9 +36,9 @@ const ProductsList = () => {
     fetchProducts();
   }, [id, searchParams]);
 
-  useEffect(() => {
-    setSearchParams(new URLSearchParams());
-  }, []);
+  // useEffect(() => {
+  //   setSearchParams(new URLSearchParams());
+  // }, [setSearchParams]);
 
   return (
     <Wrap>

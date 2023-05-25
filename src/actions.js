@@ -11,6 +11,12 @@ export const SET_BABY_COUNT = 'SET_BABY_COUNT';
 export const SET_PET_COUNT = 'SET_PET_COUNT';
 export const SET_CHILD_COUNT = 'SET_CHILD_COUNT';
 export const SET_TOTAL_PRICE = 'SET_TOTAL_PRICE';
+export const SET_SELECTED_LOCATION = 'SET_SELECTED_LOCATION';
+
+export const setSelectedLocation = location => ({
+  type: 'SET_SELECTED_LOCATION',
+  payload: location,
+});
 export const setProductData = data => {
   return {
     type: SET_PRODUCT_DATA,
@@ -23,14 +29,17 @@ export const setZoneData = data => {
     payload: data,
   };
 };
+
 export const setStartDay = startday => ({
   type: SET_START_DAY,
   payload: startday,
 });
+
 export const setEndDay = endday => ({
   type: SET_END_DAY,
   payload: endday,
 });
+
 export const setReviewData = data => {
   return {
     type: SET_REVIEW_DATA,
@@ -41,22 +50,28 @@ export const addSelectedZone = zone => ({
   type: ADD_SELECTED_ZONE,
   payload: zone,
 });
+
 export const removeSelectedZone = campingZoneId => ({
   type: REMOVE_SELECTED_ZONE,
   payload: campingZoneId,
 });
+
 export const clearSelectedZones = () => ({
   type: CLEAR_SELECTED_ZONES,
 });
+
 export function setAdultCount(count) {
   return { type: SET_ADULT_COUNT, count };
 }
+
 export function setBabyCount(count) {
   return { type: SET_BABY_COUNT, count };
 }
+
 export function setPetCount(count) {
   return { type: SET_PET_COUNT, count };
 }
+
 export function setChildCount(count) {
   return { type: SET_CHILD_COUNT, count };
 }

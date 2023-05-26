@@ -1,6 +1,6 @@
 import React from 'react';
-import PayFlow from './componenets/PayFlow/PayFlow';
-import Pay from './componenets/Pay/Pay';
+import PayFlow from './components/PayFlow/PayFlow';
+import Pay from './components/Pay/Pay';
 import styled from 'styled-components';
 import { flexSort } from '../../styles/mixin';
 

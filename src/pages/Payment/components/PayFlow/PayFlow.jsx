@@ -1,34 +1,113 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import mixin, { fontMix, flexSort, boxSize } from '../../../../styles/mixin';
+import { flexSort } from '../../../../styles/mixin';
 
 const PayFlow = () => {
+  const [nextRedirectPcUrl, setNextRedirectPcUrl] = useState('');
+  const {
+    productData,
+    selectedZones,
+    startDay,
+    endDay,
+    adultCount,
+    babyCount,
+    childCount,
+    petCount,
+    totalPrice,
+  } = useSelector(state => state);
+
+  // 날짜 계산하는 식
+  const start = new Date(startDay).toISOString().split('T')[0];
+  const startDate = new Date(new Date(start).getTime() + 24 * 60 * 60 * 1000)
+    .toISOString()
+    .split('T')[0];
+  const end = new Date(endDay).toISOString().split('T')[0];
+  const endDate = new Date(new Date(end).getTime() + 24 * 60 * 60 * 1000)
+    .toISOString()
+    .split('T')[0];
+
+  const totalNights =
+    endDay >= startDay
+      ? Math.ceil((endDay - startDay) / (1000 * 60 * 60 * 24))
+      : 0;
+  // ----------------
+
+  const { campName, region, address, thumbnail } = productData.data[0];
+  const totalPeopleCount = adultCount + childCount + babyCount;
+  const totalCampZone = selectedZones.map(zoneItem => zoneItem.campingZoneId);
+  const zoneList = selectedZones.map(zoneItem => zoneItem.zoneName);
+  const maxPeoples = selectedZones.reduce(
+    (accumulator, zoneItem) => accumulator + Number(zoneItem.maxPeople),
+    0
+  );
+  const payPrice = Number(totalPrice).toLocaleString();
+
+  let readyPaprams = {
+    cid: 'TC0ONETIME',
+    partner_order_id: 'partner_order_id',
+    partner_user_id: 'partner_user_id',
+    item_name: campName,
+    quantity: totalCampZone.length,
+    total_amount: totalPrice,
+    tax_free_amount: 0,
+    approval_url: `http://localhost:3000/paying?totalMembers=${totalPeopleCount}&campingZoneId=${totalCampZone}&startDate=${startDate}&endDate=${endDate}&totalPrice=${totalPrice}
+    `,
+    fail_url: 'http://localhost:3000/payfail',
+    cancel_url: 'http://localhost:3000/paycancel',
+  };
+
+  useEffect(() => {
+    const response = async () => {
+      await axios
+        .post('/v1/payment/ready', readyPaprams, {
+          headers: {
+            Authorization: 'KakaoAK edd72ff4d348df65098c647aaaddf5d3',
+            'Content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+          },
+        })
+        .then(res => {
+          const {
+            data: { next_redirect_pc_url },
+          } = res;
+          localStorage.setItem('tid', res.data.tid);
+          setNextRedirectPcUrl(next_redirect_pc_url);
+        });
+    };
+    response();
+  }, []);
+
   return (
     <Container>
       <ViewBox>
         <FlowBar>
           <CampInfoBox>
-            <CampImg src="https://picsum.photos/100/100" alt="캠핑장 사진" />
+            <CampImg src={thumbnail} alt="캠핑장 사진" />
             <CampInfo>
-              <CampName>선릉 캠핑장</CampName>
-              <CampRegion>서울</CampRegion>
+              <CampName>{campName}</CampName>
+              <p>{address}</p>
+              <CampRegion>{region}</CampRegion>
             </CampInfo>
           </CampInfoBox>
           <DataInfoBox>
-            <StartDate> 체크인 : 06월 01일</StartDate>
-            <EndDate> 체크아웃 : 06월 10일</EndDate>
-            <Night>총 일수 : 9박</Night>
+            <StartDate>체크인 : {startDate}</StartDate>
+            <EndDate>체크아웃 :{endDate}</EndDate>
+            <Night>
+              총 일수 : {totalNights}박 {totalNights + 1}일
+            </Night>
           </DataInfoBox>
           <NextImg src="/images/Payment/right-arrow.png" />
           <ZoneBox>
-            <ZoneList>사이트 : A-2</ZoneList>
-            <ZoneList>사이트 : B-3</ZoneList>
+            {zoneList.map(zone => {
+              return <ZoneList key={zone}>사이트 : {zone}</ZoneList>;
+            })}
           </ZoneBox>
           <TotalPrice>
             <PriceTitle>최종 결제금액</PriceTitle>
-            <Price>50,000원</Price>
+            <Price>{payPrice}원</Price>
           </TotalPrice>
-          <PayButton>
+          <PayButton href={nextRedirectPcUrl}>
             <PayImg src="/images/Payment/pay-arrow.png" />
             <PayTitle>결제</PayTitle>
           </PayButton>
@@ -179,15 +258,17 @@ const Price = styled.p`
   color: #bf2828;
 `;
 
-const PayButton = styled.div`
+const PayButton = styled.a`
   ${flexSort('center', 'center')}
   flex-direction: column;
+  text-decoration-line: none;
+  color: initial;
   gap: 12px;
   width: 80%;
   max-width: 120px;
   height: 120px;
   border-radius: 20px;
-  background-color: ${props => props.theme.mainYellow};
+  background-color: ${props => props.theme.mainGreen};
   :hover {
     opacity: 0.9;
     cursor: pointer;
@@ -201,5 +282,5 @@ const PayImg = styled.img`
 
 const PayTitle = styled.p`
   font-size: 24px;
-  color: ${props => props.theme.black};
+  color: ${props => props.theme.white};
 `;

@@ -69,6 +69,7 @@ const PayBy = styled.div`
   gap: 8px;
   width: 100%;
   height: 100%;
+  line-height: 48px;
 `;
 
 const HowToPay = styled.input`

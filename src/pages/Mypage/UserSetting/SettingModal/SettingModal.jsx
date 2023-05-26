@@ -31,12 +31,13 @@ const Contaeiner = styled.div`
   border-radius: 5px;
   background-color: ${props => theme.mainBlack};
   ::before {
-    content: '>';
+    content: '';
     position: absolute;
-    top: 64px;
+    top: 70px;
     right: 50px;
-    transform: rotate(-90deg);
-    color: ${props => theme.mainBlack};
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid ${props => props.theme.mainBlack};
   }
 
   @media screen and (max-width: 768px) {

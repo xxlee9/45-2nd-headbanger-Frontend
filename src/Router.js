@@ -11,13 +11,16 @@ import ProductsList from './pages/ProductsList/ProductsList';
 import Footer from './components/Footer/Footer';
 import NiceModal from '@ebay/nice-modal-react';
 import Auth from './pages/Login/components/Auth';
+import Paying from './pages/Payment/components/Pay/components/Paying';
+import PayFail from './pages/Payment/components/Pay/components/PayFail';
+import PayCancel from './pages/Payment/components/Pay/components/PayCancel';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <Header />
+      <Nav />
       <NiceModal.Provider>
-        <Header />
-        <Nav />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Main />} />
@@ -26,9 +29,12 @@ const Router = () => {
           <Route path="/productdetail" element={<ProductDetail />} />
           <Route path="/productslist" element={<ProductsList />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/paying" element={<Paying />} />
+          <Route path="/payfail" element={<PayFail />} />
+          <Route path="/paycancel" element={<PayCancel />} />
         </Routes>
-        <Footer />
       </NiceModal.Provider>
+      <Footer />
     </BrowserRouter>
   );
 };

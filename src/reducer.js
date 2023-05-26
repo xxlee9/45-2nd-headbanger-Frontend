@@ -14,17 +14,71 @@ import {
   SET_TOTAL_PRICE,
 } from './actions';
 const initialState = {
-  productData: null,
-  startDay: new Date(),
-  endDay: new Date(Date.now() + 24 * 60 * 60 * 1000),
+  productData: {
+    message: 'SUCCESS',
+    data: [
+      {
+        campId: 1,
+        campName: '서울 팔당 캠핑장',
+        address: '서울 강동구 팔당동 1-23',
+        pictures: 'picture 1,picture 2,picture 3,picture 4',
+        price: '50000.00',
+        description: '아름다운 자연환경과 깨끗한 공기가 특징입니다.',
+        thumbnail:
+          'https://github.com/Geun9/CVG-project/blob/main/image/camping1.jpg?raw=true',
+        amenities: '반려동물,샤워장,주차장,취사장,키즈존',
+        theme: '산',
+        region: '수도권',
+      },
+    ],
+  },
+  startDay: 'Wed Jun 21 2023 00:09:32 GMT+0900 (한국 표준시)',
+  endDay: 'Mon Jun 26 2023 00:09:32 GMT+0900 (한국 표준시)',
   zoneData: [],
   reviewData: [],
-  selectedZones: [],
-  adultCount: 1,
+  selectedZones: [
+    {
+      campId: 1,
+      zoneName: 'A1',
+      maxPeople: '2',
+      coordinates: {
+        x1: 60,
+        x2: 60,
+        x3: 113,
+        x4: 113,
+        y1: 70,
+        y2: 138,
+        y3: 138,
+        y4: 70,
+      },
+      campingZoneId: 1,
+      additionalPrice: 30000,
+      size: '7x9',
+    },
+    {
+      campId: 1,
+      zoneName: 'A2',
+      maxPeople: '4',
+      coordinates: {
+        x1: 60,
+        x2: 60,
+        x3: 113,
+        x4: 113,
+        y1: 70,
+        y2: 138,
+        y3: 138,
+        y4: 70,
+      },
+      campingZoneId: 2,
+      additionalPrice: 50000,
+      size: '7x9',
+    },
+  ],
+  adultCount: 4,
   babyCount: 0,
   petCount: 0,
-  childCount: 0,
-  totalPrice: 0,
+  childCount: 1,
+  totalPrice: 80000,
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {

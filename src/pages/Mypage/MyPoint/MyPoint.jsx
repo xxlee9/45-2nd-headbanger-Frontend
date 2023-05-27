@@ -45,17 +45,22 @@ export default MyPoint;
 
 const Container = styled.div`
   width: 100%;
+  max-width: 1200px;
+  padding: 0 50px;
+  @media screen and (max-width: 768px) {
+    padding: 0 24px;
+  }
 `;
 
 const ViewBox = styled.div`
   ${flexSort('center', 'center')}
   width: 100%;
-  max-width: 1200px;
   height: 100%;
   gap: 48px;
   margin: 0 auto;
   padding: 40px 50px;
   background-color: #eeeeee;
+  border-radius: 25px;
   @media screen and (max-width: 768px) {
     flex-direction: column;
     width: 100%;
@@ -69,6 +74,7 @@ const WelcomeBox = styled.div`
   width: 100%;
   height: 350px;
   background-color: #fff;
+  border-radius: 25px;
   @media screen and (max-width: 768px) {
     width: 80%;
     height: 120px;
@@ -81,7 +87,7 @@ const WelcomeTitle = styled.h3`
   height: 100%;
   font-size: 24px;
   @media screen and (max-width: 768px) {
-    font-size: 20px;
+    font-size: 16px;
   }
 `;
 
@@ -103,6 +109,7 @@ const PointSection = styled.div`
   height: 160px;
   padding: 40px;
   background-color: #fff;
+  border-radius: 25px;
   @media screen and (max-width: 768px) {
     padding: 20px;
     height: 80px;
@@ -130,6 +137,7 @@ const ServiceSection = styled.div`
   height: 160px;
   padding: 40px;
   background-color: #fff;
+  border-radius: 25px;
   @media screen and (max-width: 768px) {
     padding: 20px;
     height: 80px;
@@ -148,6 +156,9 @@ const ServiceBox = styled.div`
 
 const ServiceTitle = styled.h3`
   ${fontMix(16)};
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 const ServiceIcon = styled.img`

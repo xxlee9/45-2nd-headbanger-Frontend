@@ -26,6 +26,7 @@ const WishList = () => {
                 <CampName>{camp}</CampName>
                 <CampLocation>{location}</CampLocation>
               </ListInfo>
+              <LikeUnLike>💖</LikeUnLike>
             </WishListBox>
           );
         })}
@@ -52,7 +53,7 @@ const ViewBox = styled.ul`
 `;
 
 const WishListBox = styled.li`
-  ${flexSort('start', 'start')}
+  ${flexSort('space-between', 'center')}
   width: 100%;
   height: 100%;
   gap: 8px;
@@ -76,8 +77,14 @@ const WishImg = styled.img`
 const ListInfo = styled.div`
   ${flexSort('start', 'start')}
   flex-direction: column;
+  width: 100%;
   padding-left: 12px;
   gap: 24px;
+`;
+
+const LikeUnLike = styled.div`
+  width: 100%;
+  height: 100%;
 `;
 
 const CampName = styled.h3`

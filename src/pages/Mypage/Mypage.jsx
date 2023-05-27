@@ -20,7 +20,7 @@ export default Mypage;
 const Container = styled.div`
   ${flexSort('center', 'center')}
   flex-direction: column;
-  gap: 100px;
+  gap: 120px;
 
   @media screen and (max-width: 768px) {
     gap: 50px;

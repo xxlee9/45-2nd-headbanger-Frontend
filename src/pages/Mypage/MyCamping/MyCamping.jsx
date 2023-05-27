@@ -1,32 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import WishList from './components/WishList/WishList';
 import BookingList from './components/BookingList/BookingList';
+import BookingLog from './components/BookingLog/BookingLog';
+import CancleBooking from './components/CancleBooking/CancleBooking';
 import styled from 'styled-components';
 import theme from '../../../styles/theme';
 import { flexSort, fontMix } from '../../../styles/mixin';
-import BookingLog from './components/BookingLog/BookingLog';
 
 const CAMPING_LOG = [
-  { id: 1, title: '위시리스트' },
-  { id: 2, title: '예정된 캠핑' },
-  { id: 3, title: '지난 캠핑' },
-  { id: 4, title: '취소된 캠핑' },
+  { id: 1, title: '예정된 캠핑', engTitle: 'BookingList' },
+  { id: 2, title: '위시리스트', engTitle: 'WishLish' },
+  { id: 3, title: '지난 캠핑', engTitle: 'BookingLog' },
+  { id: 4, title: '취소된 캠핑', engTitle: 'CancleBooking' },
 ];
 
+const MAPPING_OBJ = {
+  BookingList: <BookingList />,
+  WishLish: <WishList />,
+  BookingLog: <BookingLog />,
+  CancleBooking: <CancleBooking />,
+};
+
 const MyCamping = () => {
+  const [menuTab, setMenuTab] = useState('BookingList');
+
   return (
     <Container>
       <ViewBox>
-        <Title>my get a way</Title>
+        <Title>나의 캠핑</Title>
         <Info>
           <CampingListBox>
-            {CAMPING_LOG.map(({ id, title }) => {
-              return <ListText key={id}>{title}</ListText>;
+            {CAMPING_LOG.map(({ id, title, engTitle }) => {
+              return (
+                <ListText key={id} onClick={() => setMenuTab(engTitle)}>
+                  {title}
+                </ListText>
+              );
             })}
           </CampingListBox>
-          <CampingDetailBox>
-            <BookingLog />
-          </CampingDetailBox>
+          <CampingDetailBox>{MAPPING_OBJ[menuTab]}</CampingDetailBox>
         </Info>
       </ViewBox>
     </Container>

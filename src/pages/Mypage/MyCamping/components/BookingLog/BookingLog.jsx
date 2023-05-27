@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { flexSort } from '../../../../../styles/mixin';
+import NiceModal from '@ebay/nice-modal-react';
+import ReviewModal from './Review/ReviewModal';
 import styled from 'styled-components';
+import { flexSort } from '../../../../../styles/mixin';
 import theme from '../../../../../styles/theme';
-import Review from './Review/Review';
 
 const BookingLog = () => {
   const [logList, setLogList] = useState([]);
+
+  const showReviewModal = () => {
+    NiceModal.show(ReviewModal, { name: 'Review' });
+  };
 
   useEffect(() => {
     fetch('/data/LogData.json')
@@ -44,14 +49,15 @@ const BookingLog = () => {
                   <CampPrice>
                     {Math.floor(totalPrice).toLocaleString()} 원
                   </CampPrice>
-                  <ReviewBox>리뷰 남기기</ReviewBox>
+                  <ReviewBox camp={camp} onClick={showReviewModal}>
+                    리뷰 작성
+                  </ReviewBox>
                 </LogDescription>
               </LogItem>
             );
           }
         )}
       </ViewBox>
-      <Review />
     </Container>
   );
 };
@@ -149,14 +155,19 @@ const ReviewBox = styled.button`
   right: 0;
   width: max-content;
   background-color: transparent;
-  border: 0;
+  border: 2px solid ${props => props.theme.mainGreen};
+  color: ${props => props.theme.mainGreen};
+  padding: 4px 8px;
+  border-radius: 4px;
   line-height: 28px;
   font-size: 16px;
   :hover {
-    color: deepskyblue;
+    box-shadow: ${props => props.theme.mainDeepGrey} 1px 1px;
+    color: ${props => props.theme.mainMediumGreen};
     cursor: pointer;
   }
   @media screen and (max-width: 768px) {
-    display: none;
+    background-color: #fff;
+    color: deepskyblue;
   }
 `;

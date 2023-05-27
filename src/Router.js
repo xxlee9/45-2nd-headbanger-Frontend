@@ -9,23 +9,26 @@ import Payment from './pages/Payment/Payment';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import ProductsList from './pages/ProductsList/ProductsList';
 import Footer from './components/Footer/Footer';
+import NiceModal from '@ebay/nice-modal-react';
 import Auth from './pages/Login/components/Auth';
 
 const Router = () => {
   return (
     <BrowserRouter>
-      <Header />
-      <Nav />
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Main />} />
-        <Route path="/mypage" element={<Mypage />} />
-        <Route path="/payment" element={<Payment />} />
-        <Route path="/productdetail" element={<ProductDetail />} />
-        <Route path="/productlist" element={<ProductsList />} />
-        <Route path="/auth" element={<Auth />} />
-      </Routes>
-      <Footer />
+      <NiceModal.Provider>
+        <Header />
+        <Nav />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Main />} />
+          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/productdetail" element={<ProductDetail />} />
+          <Route path="/productlist" element={<ProductsList />} />
+          <Route path="/auth" element={<Auth />} />
+        </Routes>
+        <Footer />
+      </NiceModal.Provider>
     </BrowserRouter>
   );
 };

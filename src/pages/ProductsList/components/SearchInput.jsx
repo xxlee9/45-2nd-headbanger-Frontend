@@ -18,7 +18,6 @@ const SearchInput = () => {
       const response = await axios.get('../data/campData.json');
       return response.data;
     } catch (error) {
-      console.error(error);
       return [];
     }
   };

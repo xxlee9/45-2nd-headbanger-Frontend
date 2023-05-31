@@ -3,6 +3,7 @@ import theme from '../../../../../styles/theme';
 import { Mixin } from 'react';
 import { flexSort } from '../../../../../styles/mixin';
 import styled from 'styled-components';
+import HeartIcon from '../../../../../assets/images/components/Common/HeartIcon';
 
 const WishList = () => {
   const [wishList, setWishList] = useState([]);
@@ -26,7 +27,7 @@ const WishList = () => {
                 <CampName>{camp}</CampName>
                 <CampLocation>{location}</CampLocation>
               </ListInfo>
-              <LikeUnLike>💖</LikeUnLike>
+              <HeartIcon />
             </WishListBox>
           );
         })}

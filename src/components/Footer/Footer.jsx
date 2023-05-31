@@ -29,7 +29,7 @@ const Info = styled.div`
   height: 100px;
 `;
 
-const CompanyInfo = styled.p`
+const CompanyInfo = styled.div`
   padding-bottom: 5px;
   margin: 5px 0px 0px 10px;
   flex: 1;

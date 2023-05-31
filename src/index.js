@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
+import NiceModal from '@ebay/nice-modal-react';
 import { createStore } from 'redux';
 import rootReducer from './reducer';
 import Router from './Router';
@@ -17,7 +18,9 @@ root.render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Router />
+        <NiceModal.Provider>
+          <Router />
+        </NiceModal.Provider>
       </ThemeProvider>
     </Provider>
   </RecoilRoot>

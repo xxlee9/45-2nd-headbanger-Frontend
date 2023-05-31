@@ -9,7 +9,6 @@ import Payment from './pages/Payment/Payment';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import ProductsList from './pages/ProductsList/ProductsList';
 import Footer from './components/Footer/Footer';
-import NiceModal from '@ebay/nice-modal-react';
 import Auth from './pages/Login/components/Auth';
 import Paying from './pages/Payment/components/Pay/components/Paying';
 import PayFail from './pages/Payment/components/Pay/components/PayFail';

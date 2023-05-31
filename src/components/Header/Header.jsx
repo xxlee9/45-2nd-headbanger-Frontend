@@ -1,78 +1,92 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import HeaderMenu from './componenets/HeaderMenu';
 import styled from 'styled-components';
+import { flexSort } from '../../styles/mixin';
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState('');
-  const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const TOKEN = localStorage.getItem('TOKEN');
 
-  const handleLogin = () => {
-    //TODO: 로그인 로직 구현
-    setIsLoggedIn(true);
-    setUsername('user');
+  const showMore = () => {
+    setIsMenuOpen(prev => !prev);
   };
 
-  const handleLogout = () => {
-    //TODO: 로그아웃 로직 구현
-    setIsLoggedIn(false);
-    setUsername('');
-    navigate('/');
-  };
+  useEffect(() => {
+    if (TOKEN) {
+      setIsLoggedIn(!isLoggedIn);
+    }
+  }, [TOKEN]);
 
   return (
-    <Nav>
-      <Logo>
-        <NavLink href="/">CVG</NavLink>
-      </Logo>
-      <UserBlock>
-        {isLoggedIn ? (
-          <>
-            <UserImage
-              src="../images/components/Header/userIcon.svg"
-              alt="userImage"
-            />
-            <UserName>{username}님 반갑습니다!</UserName>
-            <NavLink onClick={handleLogout}>로그아웃</NavLink>
-          </>
-        ) : (
-          <NavLink onClick={handleLogin}>로그인</NavLink>
-        )}
-      </UserBlock>
-    </Nav>
+    <Container>
+      <Nav>
+        <Link to="/">
+          <LogoImg>CVG</LogoImg>
+        </Link>
+        <UserBox>
+          {isLoggedIn ? (
+            <LoginedBox>
+              <UserName>캠퍼 님 반갑습니다!</UserName>
+              <UserImage
+                src="../images/components/Header/userIcon.svg"
+                alt="userImage"
+                onClick={showMore}
+              />
+              {isMenuOpen && (
+                <HeaderMenu
+                  isMenuOpen={isMenuOpen}
+                  setIsMenuOpen={setIsMenuOpen}
+                />
+              )}
+            </LoginedBox>
+          ) : (
+            <Link to="/login">
+              <LinkText>로그인 / 회원가입</LinkText>
+            </Link>
+          )}
+        </UserBox>
+      </Nav>
+    </Container>
   );
 };
 
+const Container = styled.div`
+  width: 100%;
+`;
+
 const Nav = styled.nav`
+  ${flexSort('space-between', 'center')}
   background-color: #252525;
   height: 70px;
-  color: #f5ecd7;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%;
+  padding: 0 80px;
+  position: relative;
 `;
 
-const Logo = styled.div`
+const LogoImg = styled.h1`
   font-size: 21px;
   font-weight: 600;
-  padding: 20px;
-  color: #f5ecd7;
+  padding-right: 20px;
+  color: ${props => props.theme.white};
 `;
 
-const UserBlock = styled.div`
+const UserBox = styled.div`
   display: flex;
   align-items: center;
-  padding: 80px;
   font-size: 16px;
   font-weight: 400;
 `;
 
 const UserName = styled.span`
-  margin-right: 14px;
+  color: ${props => props.theme.white};
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
-const NavLink = styled.a`
+const LinkText = styled.p`
   color: #f5ecd7;
   text-decoration: none;
   margin-left: 30px;
@@ -98,10 +112,25 @@ const NavLink = styled.a`
   }
 `;
 
+const LoginedBox = styled.div`
+  ${flexSort('space-between', 'center')}
+  gap: 16px;
+  position: relative;
+`;
+
 const UserImage = styled.img`
   width: 36px;
   height: 36px;
   margin-right: 10px;
+  :hover {
+    cursor: pointer;
+    scale: 1.03;
+  }
+`;
+
+const ModalBox = styled.div`
+  width: 100%;
+  position: relative;
 `;
 
 export default Navbar;

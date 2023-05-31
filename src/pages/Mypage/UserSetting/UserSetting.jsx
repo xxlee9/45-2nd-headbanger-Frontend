@@ -1,5 +1,4 @@
 import React from 'react';
-import SettingModal from './SettingModal/SettingModal';
 import styled from 'styled-components';
 import { flexSort } from '../../../styles/mixin';
 import theme from '../../../styles/theme';
@@ -15,12 +14,9 @@ const UserSetting = () => {
           <BackgroundImg />
         </BackgroundImgBox>
         <SettingBox>
-          <UserInfo>
-            <UserBtn>
-              <UserImg src="/images/Mypage/campicon.png" alt="유저아이콘" />
-            </UserBtn>
-          </UserInfo>
-          <SettingModal />
+          <UserBtn>
+            <UserImg src="/images/Mypage/campicon.png" alt="유저아이콘" />
+          </UserBtn>
         </SettingBox>
       </ViewBox>
     </Container>
@@ -45,10 +41,10 @@ const ViewBox = styled.div`
 
 const BackgroundImgBox = styled.div`
   width: 100%;
-  height: 50vw;
+  height: 40vw;
   @media screen and (max-width: 768px) {
     width: 100%;
-    height: 50vw;
+    height: 40vw;
   }
 `;
 
@@ -62,12 +58,9 @@ const BackgroundImg = styled.img`
 
 const SettingBox = styled.div`
   position: absolute;
-  top: 6%;
-  right: 2%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -80%);
   @media screen and (max-width: 768px) {
     top: 50%;
     right: 50%;
@@ -75,15 +68,12 @@ const SettingBox = styled.div`
   }
 `;
 
-const UserInfo = styled.div`
-  ${flexSort('center', 'center')}
-`;
-
 const UserBtn = styled.button`
-  width: 60px;
-  height: 60px;
+  width: 120px;
+  height: 120px;
   border: 0;
   border-radius: 50%;
+  padding: 24px;
   :hover {
     cursor: pointer;
     background-color: ${props => theme.borderGrey};
@@ -91,7 +81,7 @@ const UserBtn = styled.button`
 `;
 
 const UserImg = styled.img`
-  width: 28px;
-  height: 28px;
+  width: 100%;
+  height: 100%;
   border: none;
 `;

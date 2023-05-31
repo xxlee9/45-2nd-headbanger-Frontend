@@ -19,7 +19,7 @@ const Pay = () => {
             return (
               <PayBy key={id}>
                 <HowToPay type="radio" id={title} name="howToPay" />
-                <label for={title}>{title}</label>
+                <label htmlFor={title}>{title}</label>
                 <PayIcon src={url} />
               </PayBy>
             );

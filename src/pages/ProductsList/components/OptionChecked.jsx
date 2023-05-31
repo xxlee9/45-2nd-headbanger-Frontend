@@ -3,14 +3,18 @@ import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 const OptionChecked = ({ item: { id, category, type, content } }) => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(
+    localStorage.getItem(`${type}_checked`) === 'true' || false
+  );
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
+    localStorage.setItem(`${type}_checked`, checked);
     if (checked) {
       searchParams.append(category, id);
       setSearchParams(searchParams);
     } else {
+      localStorage.removeItem(`${type}_checked`);
       let deletedParams = searchParams.toString();
       deletedParams = deletedParams.split('&');
       deletedParams = deletedParams
@@ -38,6 +42,9 @@ const OptionCheckedBoxWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 7px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const OptionCheckedBox = styled.input`

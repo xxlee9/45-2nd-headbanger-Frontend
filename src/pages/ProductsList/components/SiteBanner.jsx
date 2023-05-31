@@ -21,9 +21,12 @@ const CampingBanner = styled.div`
   justify-content: flex-start;
   align-items: center;
   background-color: #f5efe7;
+
+  @media (max-width: 768px) {
+  }
 `;
 const BannerContent = styled.div`
-  ${fontMix(14, '252525')}
+  ${fontMix(15, '252525')}
   margin-left: 10px;
   font-weight: 400;
 `;

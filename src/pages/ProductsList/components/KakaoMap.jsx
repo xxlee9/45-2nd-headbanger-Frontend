@@ -5,13 +5,23 @@ import { flexSort, fontMix } from '../../../styles/mixin';
 const KakaoMap = props => {
   const { clickModal } = props;
   return (
-    <div>
+    <Container>
       <MapImage>
         <MapButton onClick={clickModal}>지도보기</MapButton>
       </MapImage>
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  width: 100%;
+  @media screen and (max-width: 768px) {
+    z-index: 9999;
+    position: fixed;
+    left: 30%;
+    bottom: 10%;
+  }
+`;
 
 const MapImage = styled.div`
   width: 240px;
@@ -22,20 +32,23 @@ const MapImage = styled.div`
   display: flex;
   justify-content: center;
   background-image: url('../images/Map/mapEntry.svg');
-  background-repeat: no-repeat;
   background-size: cover;
 `;
 
 const MapButton = styled.button`
   ${flexSort('center', 'center')}
   width: 90px;
-  ${fontMix(13)}
+  ${fontMix(12)}
   height: 36px;
   border-radius: 12px;
   background-color: #ebebd2;
   outline: none;
   border: none;
   color: ${props => props.theme.mainBlack};
+  @media screen and (max-width: 768px) {
+    color: white;
+    background-color: black;
+  }
 `;
 
 export default KakaoMap;

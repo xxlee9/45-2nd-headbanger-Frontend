@@ -7,7 +7,7 @@ import SearchCamp from './components/SearchCamp';
 import FilterBox from './components/FilterBox';
 import SortByBox from './components/SortByBox';
 import ImagesContainer from './components/ImagesContainer';
-import KakaoModal from './components/KakaoModal';
+import KakaoMapModal from './components/KakaoMapModal';
 import SiteBanner from './components/SiteBanner';
 import { PRODUCT_LIST_API } from '../../../src/config';
 import { flexSort } from '../../styles/mixin';
@@ -15,7 +15,7 @@ import { flexSort } from '../../styles/mixin';
 const ProductsList = () => {
   const [product, setProduct] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const { id } = useParams();
+  const { campId } = useParams();
   const [showModal, setShowModal] = useState(false);
   const clickModal = () => setShowModal(!showModal);
 
@@ -23,7 +23,7 @@ const ProductsList = () => {
     const fetchProducts = async () => {
       try {
         const queryString = searchParams.toString();
-        console.log(queryString);
+
         const response = await fetch(
           `${PRODUCT_LIST_API}/products?${queryString}`
         );
@@ -34,18 +34,18 @@ const ProductsList = () => {
     };
 
     fetchProducts();
-  }, [id, searchParams]);
+  }, [campId, searchParams]);
 
-  // useEffect(() => {
-  //   setSearchParams(new URLSearchParams());
-  // }, [setSearchParams]);
+  useEffect(() => {
+    setSearchParams(new URLSearchParams());
+  }, []);
 
   return (
     <Wrap>
       <SearchBar />
       {showModal && (
         <FeedModal onClick={clickModal}>
-          <KakaoModal />
+          <KakaoMapModal />
         </FeedModal>
       )}
       <ContainerAll>
@@ -59,7 +59,7 @@ const ProductsList = () => {
           <SortByBox />
           <ImagesContainer
             product={product}
-            id={id}
+            id={campId}
             searchParams={searchParams}
           />
         </RightSideContainer>
@@ -72,6 +72,7 @@ const Wrap = styled.div`
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  margin-bottom: 200px;
 `;
 
 const ContainerAll = styled.div`
@@ -82,6 +83,10 @@ const ContainerAll = styled.div`
   margin: 0 auto;
   position: relative;
   top: 80px;
+  @media screen and (max-width: 768px) {
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 const FeedModal = styled.div`
   position: fixed;
@@ -100,6 +105,12 @@ const LeftSideContainer = styled.div`
   width: 30%;
   position: sticky;
   top: 0;
+  @media screen and (max-width: 768px) {
+    ${flexSort('center', 'center')}
+    flex-direction: row-reverse;
+    position: relative;
+    width: 100%;
+  }
 `;
 
 const RightSideContainer = styled.div`

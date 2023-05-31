@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 import { REDIRECT_URI } from './LoginData';
+import LoadingMotion from '../../../components/Common/LoadingMotion';
 
 const Auth = () => {
   const location = useLocation();
@@ -9,7 +11,7 @@ const Auth = () => {
   const [accessToken, setAccessToken] = useState('');
 
   const exchangeKakaoToken = async accessToken => {
-    const url = 'http://10.58.52.227:3000/users/kakao';
+    const url = 'http://10.58.52.214:3001/users/kakao';
     const body = JSON.stringify({
       accessToken: accessToken,
     });
@@ -36,7 +38,7 @@ const Auth = () => {
 
   useEffect(() => {
     if (!KAKAO_CODE) {
-      navigate('/main');
+      navigate('/');
       return;
     }
 
@@ -56,7 +58,31 @@ const Auth = () => {
       });
   }, []);
 
-  return <div>kakao login</div>;
+  return (
+    <Background>
+      <LoadingMotion />
+      <LoadingText>Loading ...</LoadingText>
+    </Background>
+  );
 };
+
+const Background = styled.div`
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+`;
+
+const LoadingText = styled.div`
+  font: 1rem 'Noto Sans KR';
+  text-align: center;
+`;
 
 export default Auth;

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { flexSort } from '../../../styles/mixin';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
+import { flexSort } from '../../../styles/mixin';
 
 const SortByBox = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,7 +65,7 @@ const Dropdown = styled.div`
   top: 65px;
   width: 120px;
   right: 0;
-  background-color: #c2c2aa;
+  background-color: #ebebd2;
   border-radius: 12px;
   padding: 3px 3.5px;
   z-index: 1;
@@ -77,7 +77,7 @@ const Dropdown = styled.div`
     right: 10px;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
-    border-bottom: 7px solid #c2c2aa;
+    border-bottom: 7px solid #ebebd2;
   }
 `;
 
@@ -87,7 +87,7 @@ const DropdownOption = styled.button`
   justify-content: center;
   background-color: white;
   padding: 8px 16px;
-  border: 3px solid #c2c2aa;
+  border: 3px solid #ebebd2;
   outline: none;
   font-size: 13px;
   width: 113px;

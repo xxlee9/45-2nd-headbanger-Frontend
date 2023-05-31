@@ -12,7 +12,6 @@ export const SET_PET_COUNT = 'SET_PET_COUNT';
 export const SET_CHILD_COUNT = 'SET_CHILD_COUNT';
 export const SET_TOTAL_PRICE = 'SET_TOTAL_PRICE';
 export const SET_SELECTED_LOCATION = 'SET_SELECTED_LOCATION';
-
 export const setSelectedLocation = location => ({
   type: 'SET_SELECTED_LOCATION',
   payload: location,

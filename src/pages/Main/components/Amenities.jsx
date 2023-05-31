@@ -1,74 +1,93 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 import { flexSort, fontMix } from '../../../styles/mixin';
 
-const Amenities = () => {
-  const [comfortable, setComfotable] = useState([]);
+const Amenities = ({ amenitiesData }) => {
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch('/data/Amenities.json')
-      .then(res => res.json())
-      .then(data => {
-        setComfotable(data);
-      });
-  }, []);
+  const handleImageClick = id => {
+    navigate(`/products?amenityId=${id}`);
+  };
+
   return (
-    <div>
-      <AmenitiesTitle># 편의시설 리스트</AmenitiesTitle>
+    <Container>
+      <AmenitiesTitle> 편의시설 리스트</AmenitiesTitle>
       <AmenitiesImage>
-        {comfortable.map((item, index) => (
-          <StyledImageContainer key={index}>
-            <StyledImage src={item.image} alt="편의시설 리스트" />
-            <StyledName>{item.name}</StyledName>
-          </StyledImageContainer>
+        {amenitiesData.map(({ id, name }) => (
+          <AmenityContainer key={id} onClick={() => handleImageClick(id)}>
+            <StyledImageContainer>
+              <StyledImage
+                src={`/images/Main/Amenity${id}.png`}
+                alt="편의시설 리스트"
+              />
+            </StyledImageContainer>
+            <Imagename>{name}</Imagename>
+          </AmenityContainer>
         ))}
+        <AmenityContainer onClick={() => handleImageClick(0)}>
+          <StyledImageContainer>
+            <StyledImage
+              src="/images/Main/Amenity8.png"
+              alt="편의시설 리스트"
+            />
+          </StyledImageContainer>
+          <Imagename>전체보기</Imagename>
+        </AmenityContainer>
       </AmenitiesImage>
-    </div>
+    </Container>
   );
 };
 
 export default Amenities;
 
-const AmenitiesTitle = styled.h6`
-  ${fontMix(36, 'black')}
-  margin: 100px 0 5px 170px;
+const Container = styled.div`
+  ${flexSort('center', 'start')}
+  flex-direction: column;
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
 `;
 
+const AmenitiesTitle = styled.h1`
+  ${fontMix(24, 'black')}
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  padding-top: 30px;
+  padding-bottom: 30px;
+`;
 const AmenitiesImage = styled.div`
-  ${flexSort('space-between', 'flex-start')}
+  ${flexSort('center', 'center')}
+  gap: 12px;
+  width: 100%;
+  height: 100%;
   flex-wrap: wrap;
-  margin-left: 190px;
+  max-width: 1100px;
 `;
 
 const StyledImageContainer = styled.div`
-  position: relative;
-  margin-right: 2%;
-  margin-bottom: 20px;
-  padding: 0 10px;
-  overflow: hidden;
+  width: 266px;
+  height: 100%;
 `;
 
 const StyledImage = styled.img`
-  width: 310px;
-  height: 270px;
-  margin-left: -10px;
-  margin-bottom: 50px;
-  border-radius: 25px;
-  opacity: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
   cursor: pointer;
-  transform: scale(1);
-  transition: all 2s linear;
-  &:hover {
-    transform: scale(1.1);
-  }
 `;
 
-const StyledName = styled.div`
-  ${fontMix(36, 'white')}
+const AmenityContainer = styled.div`
+  position: relative;
+  cursor: pointer;
+`;
+
+const Imagename = styled.div`
   position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1;
-  margin-left: 10px;
-  margin-top: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  top: 24px;
+  left: 24px;
+  padding: 10px;
 `;

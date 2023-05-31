@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import theme from '../../styles/theme';
 import { fontMix, flexSort } from '../../styles/mixin';
 import Footertop from '../Footer/Footertop';
 
 const Footer = () => {
   return (
-    <div>
+    <FooterWrapper>
       <Footertop />
       <Info>
         <CompanyInfo>
@@ -18,15 +17,28 @@ const Footer = () => {
           CVG. All Rights Reserved
         </CompanyInfo>
       </Info>
-    </div>
+    </FooterWrapper>
   );
 };
+
+export default Footer;
+
+const FooterWrapper = styled.div`
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 70px;
+  z-index: 0;
+`;
 
 const Info = styled.div`
   ${fontMix(12, 'white')}
   ${flexSort('space-around', 'center')}
-  background-color : ${theme.mainBlack};
-  height: 100px;
+  background-color: ${props => props.theme.mainBlack};
+  height: 150px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 `;
 
 const CompanyInfo = styled.div`
@@ -34,5 +46,3 @@ const CompanyInfo = styled.div`
   margin: 5px 0px 0px 10px;
   flex: 1;
 `;
-
-export default Footer;

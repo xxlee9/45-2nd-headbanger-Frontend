@@ -133,7 +133,6 @@ const SearchBar = () => {
     </SearchBarBackground>
   );
 };
-
 const SearchBarBackground = styled.div`
   display: flex;
   align-items: center;

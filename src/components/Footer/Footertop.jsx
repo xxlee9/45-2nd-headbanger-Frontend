@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import theme from '../../styles/theme';
 import { fontMix, flexSort } from '../../styles/mixin';
 
 const Footertop = () => {
@@ -18,7 +17,7 @@ export default Footertop;
 const FooterInfo = styled.div`
   ${fontMix(12, 'white')}
   ${flexSort('space-around', 'center')}
-  background-color: ${theme.mainBlack};
+  background-color: ${props => props.theme.mainBlack};
   height: 20px;
 `;
 

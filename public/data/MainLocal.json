@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "count": 100,
+    "name": "수도권",
+    "category": "Metropolitan area",
+    "image": "/images/Main/camping1.jpg"
+  },
+
+  {
+    "id": 2,
+    "count": 42,
+    "name": "강원도",
+    "category": "Gangwon-do",
+    "image": "/images/Main/camping2.jpg"
+  },
+
+  {
+    "id": 3,
+    "count": 971,
+    "name": "충청도",
+    "category": "Chungcheongdo",
+    "image": "/images/Main/camping3.jpg"
+  },
+
+  {
+    "id": 4,
+    "count": 265,
+    "name": "전라도",
+    "category": "Jeolla-do",
+    "image": "/images/Main/camping4.jpg"
+  },
+
+  {
+    "id": 5,
+    "count": 308,
+    "name": "경상도",
+    "category": "Gyeongsang-do",
+    "image": "/images/Main/camping5.jpg"
+  },
+
+  {
+    "id": 6,
+    "count": 43,
+    "name": "제주도",
+    "category": "Jejudo",
+    "image": "/images/Main/camping6.jpg"
+  }
+]

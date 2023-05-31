@@ -4,7 +4,7 @@
     "count": 550,
     "name": "키즈존",
     "category": "kidsZone",
-    "image": "/images/Main/kidsZone.png"
+    "image": "/images/Main/Amenity1.png"
   },
 
   {
@@ -12,7 +12,7 @@
     "count": 800,
     "name": "샤워시설",
     "category": "shower",
-    "image": "/images/Main/shower.png"
+    "image": "/images/Main/Amenity2.png"
   },
 
   {
@@ -20,7 +20,7 @@
     "count": 997,
     "name": "매점",
     "category": "store",
-    "image": "/images/Main/store.png"
+    "image": "/images/Main/Amenity3.png"
   },
 
   {
@@ -28,7 +28,7 @@
     "count": 778,
     "name": "수영장",
     "category": "swimming",
-    "image": "/images/Main/swimming.png"
+    "image": "/images/Main/Amenity4.png"
   },
 
   {
@@ -36,7 +36,7 @@
     "count": 593,
     "name": "반려동물",
     "category": "pet",
-    "image": "/images/Main/pet.png"
+    "image": "/images/Main/Amenity5.png"
   },
 
   {
@@ -44,7 +44,7 @@
     "count": 800,
     "name": "주차장",
     "category": "parking",
-    "image": "/images/Main/parking.png"
+    "image": "/images/Main/Amenity6.png"
   },
 
   {
@@ -52,6 +52,14 @@
     "count": 899,
     "name": "취사장",
     "category": "cooking",
-    "image": "/images/Main/cooking.png"
+    "image": "/images/Main/Amenity7.png"
+  },
+
+  {
+    "id": 8,
+    "count": 899,
+    "name": "전체보기",
+    "category": "all",
+    "image": "/images/Main/Amenity8.png"
   }
 ]

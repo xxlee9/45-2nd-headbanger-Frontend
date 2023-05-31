@@ -3,27 +3,27 @@
     "id": 1,
     "name": "도심",
     "category": "downtown",
-    "image": "images/Main/downtown.png"
+    "image": "/images/Main/Thema1.jpg"
   },
 
   {
     "id": 2,
     "name": "산",
     "category": "mountain",
-    "image": "images/Main/mountain.png"
+    "image": "/images/Main/Thema2.jpg"
   },
 
   {
     "id": 3,
     "name": "바다",
     "category": "ocean",
-    "image": "images/Main/ocean.png"
+    "image": "/images/Main/Thema3.jpg"
   },
 
   {
     "id": 4,
     "name": "호수",
     "category": "lake",
-    "image": "images/Main/lake.png"
+    "image": "/images/Main/Thema4.jpg"
   }
 ]

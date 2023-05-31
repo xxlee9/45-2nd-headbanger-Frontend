@@ -5,7 +5,7 @@
     "price": "50.00",
     "address": "123 Main St, City",
     "thumbnail": "https://images.unsplash.com/photo-1516939884455-1445c8652f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
-    "region_name": "서울",
+    "region_name": "제주도",
     "amenity": ["편의점", "화장실"],
     "theme": "산"
   },

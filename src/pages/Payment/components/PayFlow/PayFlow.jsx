@@ -33,7 +33,6 @@ const PayFlow = () => {
       ? Math.ceil((endDay - startDay) / (1000 * 60 * 60 * 24))
       : 0;
   // ----------------
-  console.log(productData.data.address);
   const { campName, region, address, thumbnail } = productData.data;
   const totalPeopleCount = adultCount + childCount + babyCount;
   const totalCampZone = selectedZones.map(zoneItem => zoneItem.campingZoneId);

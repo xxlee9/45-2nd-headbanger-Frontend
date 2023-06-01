@@ -1,23 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderMenu from './componenets/HeaderMenu';
+import axios from 'axios';
 import styled from 'styled-components';
 import { flexSort } from '../../styles/mixin';
 
 const Navbar = () => {
+  const TOKEN = localStorage.getItem('TOKEN');
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const TOKEN = localStorage.getItem('TOKEN');
+  const [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    userInfo && setIsLoggedIn(prev => !prev);
+  }, []);
 
   const showMore = () => {
     setIsMenuOpen(prev => !prev);
   };
 
+  const { id, name, profile_image, theme_id } = userInfo;
+
   useEffect(() => {
-    if (TOKEN) {
-      setIsLoggedIn(!isLoggedIn);
-    }
-  }, [TOKEN]);
+    TOKEN &&
+      axios
+        .get('http://10.58.52.114:3000/users/loginedUser', {
+          headers: {
+            authorization: `${TOKEN}`,
+          },
+        })
+        .then(res => setUserInfo(res.data.result[0]));
+  }, []);
 
   return (
     <Container>
@@ -28,7 +42,7 @@ const Navbar = () => {
         <UserBox>
           {isLoggedIn ? (
             <LoginedBox>
-              <UserName>캠퍼 님 반갑습니다!</UserName>
+              <UserName>{name} 님 반갑습니다!</UserName>
               <UserImage
                 src="../images/components/Header/userIcon.svg"
                 alt="userImage"

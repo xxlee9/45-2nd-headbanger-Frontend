@@ -19,7 +19,6 @@ const Router = () => {
     <BrowserRouter>
       <Header />
       <Nav />
-
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Main />} />
@@ -32,7 +31,6 @@ const Router = () => {
         <Route path="/payfail" element={<PayFail />} />
         <Route path="/paycancel" element={<PayCancel />} />
       </Routes>
-
       <Footer />
     </BrowserRouter>
   );

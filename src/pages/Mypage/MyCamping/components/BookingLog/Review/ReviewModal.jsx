@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import NiceModal, { useModal } from '@ebay/nice-modal-react';
 import SuccessModal from './SuccessModal';
-import axios from 'axios';
 import StarRating from './StarRating';
 import styled from 'styled-components';
 import { flexSort } from '../../../../../../styles/mixin';
@@ -16,6 +16,7 @@ export default NiceModal.create(({ ReviewModal }) => {
     convenience: '',
     content: '',
   });
+  const TOKEN = localStorage.getItem('token');
 
   const modal = useModal();
 
@@ -41,15 +42,14 @@ export default NiceModal.create(({ ReviewModal }) => {
   };
 
   const addReview = () => {
-    // axios
-    //   .post('http://10.58.52.176:3000/review', totalReview, {
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       authorization:
-    //         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjg1MzQ1MTYyLCJleHAiOjE2ODU0MzE1NjIsImlzcyI6Imlzc3VlciJ9.FHbhLE3gd6pJq_9anlPDnxqPKG6g7FBhfPlM6LCIEmc',
-    //     },
-    //   })
-    //   .then(showSuccessModal());
+    axios
+      .post('http://10.58.52.176:3000/review', totalReview, {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: TOKEN,
+        },
+      })
+      .then(showSuccessModal());
     showSuccessModal();
   };
 

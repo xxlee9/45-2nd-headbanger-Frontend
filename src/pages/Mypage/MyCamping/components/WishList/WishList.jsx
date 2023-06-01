@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import theme from '../../../../../styles/theme';
+import axios from 'axios';
 import { Mixin } from 'react';
 import { flexSort } from '../../../../../styles/mixin';
 import styled from 'styled-components';
@@ -7,25 +7,32 @@ import HeartIcon from '../../../../../assets/images/components/Common/HeartIcon'
 
 const WishList = () => {
   const [wishList, setWishList] = useState([]);
+  const TOKEN = localStorage.get('token');
 
   useEffect(() => {
-    fetch('/data/WishList.json')
-      .then(res => res.json())
-      .then(data => {
-        setWishList(data);
-      });
+    axios
+      .get('http://10.58.52.114:3000/wish', {
+        headers: {
+          authorization: TOKEN,
+        },
+      })
+      .then(res => setWishList(res.data.result));
   }, []);
+
+  const { camp_name, camp_id, address, thumbnail } = wishList;
 
   return (
     <Container>
       <ViewBox>
-        {wishList.map(({ id, camp, thumbnail, location }) => {
+        {wishList.map(({ camp_id, camp_name, thumbnail, address }) => {
           return (
-            <WishListBox key={id}>
-              <WishImg src={thumbnail} alt="캠핑장 사진" />
+            <WishListBox key={camp_id}>
+              <ImgBox>
+                <WishImg src={thumbnail} alt="캠핑장 사진" />
+              </ImgBox>
               <ListInfo>
-                <CampName>{camp}</CampName>
-                <CampLocation>{location}</CampLocation>
+                <CampName>{camp_name}</CampName>
+                <CampLocation>{address}</CampLocation>
               </ListInfo>
               <HeartIcon />
             </WishListBox>
@@ -59,16 +66,21 @@ const WishListBox = styled.li`
   height: 100%;
   gap: 8px;
   padding-bottom: 40px;
-  border-bottom: 1px solid ${props => theme.borderGrey};
+  border-bottom: 1px solid ${props => props.theme.borderGrey};
   @media screen and (max-width: 768px) {
     flex-direction: column;
   }
 `;
 
+const ImgBox = styled.div`
+  width: 150px;
+  height: 190px;
+`;
+
 const WishImg = styled.img`
-  width: 30%;
-  height: 30%;
-  border-radius: 25px;
+  width: 150px;
+  height: 190px;
+  border-radius: 12px;
   @media screen and (max-width: 768px) {
     width: 100%;
     height: 100%;

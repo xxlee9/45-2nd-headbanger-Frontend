@@ -1,68 +1,80 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import NiceModal from '@ebay/nice-modal-react';
 import ReviewModal from './Review/ReviewModal';
 import styled from 'styled-components';
 import { flexSort } from '../../../../../styles/mixin';
-import theme from '../../../../../styles/theme';
 
-const BookingLog = () => {
+const BookingLogcopy = () => {
   const [logList, setLogList] = useState([]);
+  const TOKEN = localStorage.get('token');
 
   const showReviewModal = () => {
     NiceModal.show(ReviewModal, { name: 'Review' });
   };
 
   useEffect(() => {
-    fetch('/data/LogData.json')
-      .then(res => res.json())
-      .then(data => {
-        setLogList(data);
-      });
+    axios
+      .get('http://10.58.52.227:3000/users/reservation-lists', {
+        headers: {
+          authorization: TOKEN,
+        },
+      })
+      .then(res => setLogList(res.data.pastList));
   }, []);
 
   return (
     <Container>
       <ViewBox>
-        {logList.map(
-          ({
-            id,
-            reservationNumber,
-            camp,
-            thumbnail,
-            startDate,
-            endDate,
-            zone,
-            peopleCount,
-            totalPrice,
-          }) => {
-            return (
-              <LogItem key={id}>
-                <LogDescription>
-                  <LogImg src={thumbnail} alt="캠핑장 사진" />
-                  <LogInfo>
-                    <InfoTitle>{camp}</InfoTitle>
-                    <InfoText>
-                      {startDate} ~ {endDate} / {peopleCount} 명
-                    </InfoText>
-                    <InfoZone>캠핑존 : {zone}</InfoZone>
-                  </LogInfo>
-                  <CampPrice>
+        {logList &&
+          logList.map(
+            ({
+              campingZoneNames,
+              campsiteName,
+              endDate,
+              startDate,
+              thumbnail,
+              totalMembers,
+              totalPrice,
+              reservationNumber,
+            }) => {
+              return (
+                <BookingView key={1}>
+                  <ImgBox>
+                    <BookingImg src={thumbnail} alt="캠핑장 사진" />
+                  </ImgBox>
+                  <BookingDescription>
+                    <BookingNumber>
+                      예약번호 : {reservationNumber}
+                    </BookingNumber>
+                    <BookingInfo>
+                      <div>
+                        <InfoTitle>
+                          {campsiteName}
+                          이름
+                        </InfoTitle>
+                      </div>
+                      <InfoText>
+                        {startDate} ~ {endDate}
+                        <InfoZone>캠핑존 : {campingZoneNames}</InfoZone>
+                      </InfoText>
+                      <p>예약인원 : {totalMembers} 명</p>
+                    </BookingInfo>
+                  </BookingDescription>
+                  <BookingPrice>
                     {Math.floor(totalPrice).toLocaleString()} 원
-                  </CampPrice>
-                  <ReviewBox camp={camp} onClick={showReviewModal}>
-                    리뷰 작성
-                  </ReviewBox>
-                </LogDescription>
-              </LogItem>
-            );
-          }
-        )}
+                  </BookingPrice>
+                  <ReviewBox onClick={showReviewModal}>리뷰 작성</ReviewBox>
+                </BookingView>
+              );
+            }
+          )}
       </ViewBox>
     </Container>
   );
 };
 
-export default BookingLog;
+export default BookingLogcopy;
 
 const Container = styled.div`
   width: 100%;
@@ -79,19 +91,26 @@ const ViewBox = styled.ul`
   margin: 0 auto;
 `;
 
-const LogItem = styled.li`
-  ${flexSort('center', 'start')}
-  flex-direction: column;
+const BookingView = styled.li`
+  ${flexSort('center', 'center')};
+  position: relative;
   width: 100%;
   height: 100%;
   gap: 8px;
   padding-bottom: 40px;
-  border-bottom: 1px solid ${props => theme.borderGrey};
+  border-bottom: 1px solid ${props => props.theme.borderGrey};
 `;
 
-const LogDescription = styled.div`
-  position: relative;
-  ${flexSort('space-between', 'center')}
+const BookingNumber = styled.h2`
+  font-size: 16px;
+  color: ${props => props.theme.middleGrey};
+`;
+
+const BookingDescription = styled.div`
+  ${flexSort('space-between', 'space-between')}
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 12px;
   width: 100%;
   height: 100%;
   @media screen and (max-width: 768px) {
@@ -100,52 +119,56 @@ const LogDescription = styled.div`
   }
 `;
 
-const LogImg = styled.img`
-  width: 30%;
-  height: 30%;
-  border-radius: 25px;
+const ImgBox = styled.div`
+  width: 150px;
+  height: 190px;
+`;
+
+const BookingImg = styled.img`
+  width: 150px;
+  height: 190px;
+  border-radius: 12px;
   @media screen and (max-width: 768px) {
     width: 100%;
     height: 100%;
-    :hover {
-      opacity: 0.7;
-      cursor: pointer;
-    }
   }
 `;
 
-const LogInfo = styled.div`
-  ${flexSort('start', 'start')}
+const BookingInfo = styled.div`
+  ${flexSort('center', 'start')}
   flex-direction: column;
-  padding-left: 12px;
-  gap: 24px;
-  font-size: 16px;
-  width: 80%;
+  gap: 8px;
   height: 100%;
+  width: 80%;
+  font-size: 16px;
   @media screen and (max-width: 768px) {
     width: 100%;
+    padding-left: 0;
   }
 `;
 
 const InfoTitle = styled.h3`
   font-size: 24px;
+  line-height: 32px;
 `;
 
 const InfoText = styled.p`
   font-size: 16px;
+  line-height: 24px;
 `;
 
 const InfoZone = styled.p`
   font-size: 16px;
+  line-height: 32px;
 `;
 
-const CampPrice = styled.p`
-  width: 40%;
+const BookingPrice = styled.p`
+  display: flex;
+  justify-content: end;
+  width: 50%;
   font-size: 20px;
   @media screen and (max-width: 768px) {
-    text-align: right;
     width: 100%;
-    text-align: right;
   }
 `;
 

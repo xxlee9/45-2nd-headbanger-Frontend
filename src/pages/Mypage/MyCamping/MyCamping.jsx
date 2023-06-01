@@ -4,22 +4,7 @@ import BookingList from './components/BookingList/BookingList';
 import BookingLog from './components/BookingLog/BookingLog';
 import CancleBooking from './components/CancleBooking/CancleBooking';
 import styled from 'styled-components';
-import theme from '../../../styles/theme';
 import { flexSort, fontMix } from '../../../styles/mixin';
-
-const CAMPING_LOG = [
-  { id: 1, title: '예정된 캠핑', engTitle: 'BookingList' },
-  { id: 2, title: '위시리스트', engTitle: 'WishLish' },
-  { id: 3, title: '지난 캠핑', engTitle: 'BookingLog' },
-  { id: 4, title: '취소된 캠핑', engTitle: 'CancleBooking' },
-];
-
-const MAPPING_OBJ = {
-  BookingList: <BookingList />,
-  WishLish: <WishList />,
-  BookingLog: <BookingLog />,
-  CancleBooking: <CancleBooking />,
-};
 
 const MyCamping = () => {
   const [menuTab, setMenuTab] = useState('BookingList');
@@ -47,6 +32,20 @@ const MyCamping = () => {
 
 export default MyCamping;
 
+const CAMPING_LOG = [
+  { id: 1, title: '예정된 캠핑', engTitle: 'BookingList' },
+  { id: 2, title: '위시리스트', engTitle: 'WishLish' },
+  { id: 3, title: '지난 캠핑', engTitle: 'BookingLog' },
+  { id: 4, title: '취소된 캠핑', engTitle: 'CancleBooking' },
+];
+
+const MAPPING_OBJ = {
+  BookingList: <BookingList />,
+  WishLish: <WishList />,
+  BookingLog: <BookingLog />,
+  CancleBooking: <CancleBooking />,
+};
+
 const Container = styled.div`
   width: 100%;
   height: 100%;
@@ -69,7 +68,7 @@ const Title = styled.h2`
   font-size: 28px;
   margin-bottom: 20px;
   padding-bottom: 8px;
-  border-bottom: 1px solid ${props => theme.mainYellow};
+  border-bottom: 1px solid ${props => props.theme.hoverGrey};
   @media screen and (max-width: 768px) {
     font-size: 24px;
   }
@@ -89,7 +88,7 @@ const Info = styled.div`
 const CampingListBox = styled.ul`
   width: 20%;
   height: 100%;
-  border: 1px solid ${props => theme.borderGrey};
+  border: 1px solid ${props => props.theme.borderGrey};
 
   @media screen and (max-width: 768px) {
     ${flexSort('space-between', 'cetner')};
@@ -112,7 +111,7 @@ const ListText = styled.li`
       display: block;
       position: absolute;
       margin-left: -16px;
-      border-left: 4px solid ${props => theme.mainYellow};
+      border-left: 4px solid ${props => props.theme.mainLightGreen};
     }
   }
   @media screen and (max-width: 768px) {
@@ -131,7 +130,7 @@ const ListText = styled.li`
         display: block;
         position: absolute;
         margin-top: 56px;
-        border-bottom: 4px solid ${props => theme.mainYellow};
+        border-bottom: 4px solid ${props => props.theme.mainYellow};
       }
     }
   }

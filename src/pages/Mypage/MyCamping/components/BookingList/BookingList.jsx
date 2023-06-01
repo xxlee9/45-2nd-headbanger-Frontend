@@ -1,54 +1,64 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import { flexSort } from '../../../../../styles/mixin';
-import theme from '../../../../../styles/theme';
 
 const BookingList = () => {
   const [bookingList, setBookingList] = useState([]);
+  const TOKEN = localStorage.get('token');
 
   useEffect(() => {
-    fetch('/data/BookingData.json')
-      .then(res => res.json())
-      .then(data => {
-        setBookingList(data);
-      });
+    axios
+      .get('http://10.58.52.227:3000/users/reservation-lists', {
+        headers: {
+          authorization: TOKEN,
+        },
+      })
+      .then(res => setBookingList(res.data.scheduledList));
   }, []);
-
   return (
     <Container>
       <ViewBox>
-        {bookingList.map(
-          ({
-            id,
-            reservationNumber,
-            camp,
-            thumbnail,
-            startDate,
-            endDate,
-            zone,
-            peopleCount,
-            totalPrice,
-          }) => {
-            return (
-              <BookingView key={id}>
-                <BookingNumber>예약번호 : {reservationNumber}</BookingNumber>
-                <BookingDescription>
-                  <BookingImg src={thumbnail} alt="캠핑장 사진" />
-                  <BookingInfo>
-                    <InfoTitle>{camp}</InfoTitle>
-                    <InfoText>
-                      {startDate} ~ {endDate} / {peopleCount} 명
-                    </InfoText>
-                    <InfoZone>캠핑존 : {zone}</InfoZone>
-                  </BookingInfo>
+        {bookingList &&
+          bookingList.map(
+            ({
+              campingZoneNames,
+              campsiteName,
+              endDate,
+              startDate,
+              thumbnail,
+              totalMembers,
+              totalPrice,
+              reservationNumber,
+            }) => {
+              return (
+                <BookingView key={1}>
+                  <ImgBox>
+                    <BookingImg src={thumbnail} alt="캠핑장 사진" />
+                  </ImgBox>
+                  <BookingDescription>
+                    <BookingNumber>
+                      예약번호 : {reservationNumber}
+                    </BookingNumber>
+                    <BookingInfo>
+                      <div>
+                        <InfoTitle>{campsiteName}</InfoTitle>
+                      </div>
+                      <InfoText>
+                        {startDate} ~ {endDate}
+                        <InfoZone>캠핑존 : {campingZoneNames}</InfoZone>
+                      </InfoText>
+                      <p>예약인원 : {totalMembers} 명</p>
+                    </BookingInfo>
+                  </BookingDescription>
                   <BookingPrice>
                     {Math.floor(totalPrice).toLocaleString()} 원
                   </BookingPrice>
-                </BookingDescription>
-              </BookingView>
-            );
-          }
-        )}
+                  <CancleBtn>예약 취소</CancleBtn>
+                </BookingView>
+              );
+            }
+          )}
       </ViewBox>
     </Container>
   );
@@ -72,21 +82,25 @@ const ViewBox = styled.ul`
 `;
 
 const BookingView = styled.li`
-  ${flexSort('center', 'start')}
-  flex-direction: column;
+  ${flexSort('center', 'center')}
+  position: relative;
   width: 100%;
   height: 100%;
   gap: 8px;
   padding-bottom: 40px;
-  border-bottom: 1px solid ${props => theme.borderGrey};
+  border-bottom: 1px solid ${props => props.theme.borderGrey};
 `;
 
 const BookingNumber = styled.h2`
-  font-size: 20px;
+  font-size: 16px;
+  color: ${props => props.theme.middleGrey};
 `;
 
 const BookingDescription = styled.div`
-  ${flexSort('space-between', 'center')}
+  ${flexSort('space-between', 'space-between')}
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 12px;
   width: 100%;
   height: 100%;
   @media screen and (max-width: 768px) {
@@ -95,10 +109,15 @@ const BookingDescription = styled.div`
   }
 `;
 
+const ImgBox = styled.div`
+  width: 150px;
+  height: 190px;
+`;
+
 const BookingImg = styled.img`
-  width: 30%;
-  height: 30%;
-  border-radius: 25px;
+  width: 150px;
+  height: 190px;
+  border-radius: 12px;
   @media screen and (max-width: 768px) {
     width: 100%;
     height: 100%;
@@ -106,12 +125,12 @@ const BookingImg = styled.img`
 `;
 
 const BookingInfo = styled.div`
-  ${flexSort('start', 'start')}
+  ${flexSort('center', 'start')}
   flex-direction: column;
-  padding-left: 12px;
-  gap: 24px;
-  font-size: 16px;
+  gap: 8px;
+  height: 100%;
   width: 80%;
+  font-size: 16px;
   @media screen and (max-width: 768px) {
     width: 100%;
     padding-left: 0;
@@ -120,20 +139,48 @@ const BookingInfo = styled.div`
 
 const InfoTitle = styled.h3`
   font-size: 24px;
+  line-height: 32px;
 `;
 
 const InfoText = styled.p`
   font-size: 16px;
+  line-height: 24px;
 `;
 
 const InfoZone = styled.p`
   font-size: 16px;
+  line-height: 32px;
 `;
 
 const BookingPrice = styled.p`
-  width: 40%;
+  display: flex;
+  justify-content: end;
+  width: 50%;
   font-size: 20px;
   @media screen and (max-width: 768px) {
     width: 100%;
+  }
+`;
+
+const CancleBtn = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: max-content;
+  background-color: transparent;
+  border: 2px solid ${props => props.theme.mainGreen};
+  color: ${props => props.theme.mainGreen};
+  padding: 4px 8px;
+  border-radius: 4px;
+  line-height: 28px;
+  font-size: 16px;
+  :hover {
+    box-shadow: ${props => props.theme.mainDeepGrey} 1px 1px;
+    color: ${props => props.theme.mainMediumGreen};
+    cursor: pointer;
+  }
+  @media screen and (max-width: 768px) {
+    background-color: #fff;
+    color: deepskyblue;
   }
 `;

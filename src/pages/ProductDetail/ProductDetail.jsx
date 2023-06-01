@@ -53,26 +53,24 @@ const ProductDetail = () => {
       endDayOfMonth < 10 ? `0${endDayOfMonth}` : endDayOfMonth;
     formattedEndDate = `${endYear}-${formattedEndMonth}-${formattedEndDay}`;
   }
-  // useFetchData(
-  //   `http://10.58.52.227:3000/products/campingZone?campId=${campId}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`,
-  //   dispatch,
-  //   setZoneData
-  // );
 
-  // useFetchData(
-  //   `http://10.58.52.214:3001/products/${campId}`,
-  //   dispatch,
-  //   setProductData
-  // );
-  // useFetchData(
-  //   `http://10.58.52.114:3000/review/${campId}`,
-  //   dispatch,
-  //   setReviewData
-  // );
+  useFetchData(
+    `http://10.58.52.227:3000/products/camps?campId=${campId}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`,
+    dispatch,
+    setZoneData
+  );
 
-  useFetchData('/data/camping1data.json', dispatch, setProductData);
-  useFetchData('/data/camping1review.json', dispatch, setReviewData);
-  useFetchData('/data/backCampingZone.json', dispatch, setZoneData);
+  useFetchData(
+    `http://10.58.52.227:3000/products/camps/${campId}`,
+    dispatch,
+    setProductData
+  );
+
+  useFetchData(
+    `http://10.58.52.227:3000/reviews/${campId}`,
+    dispatch,
+    setReviewData
+  );
 
   if (
     !reviewData ||

@@ -8,20 +8,17 @@ import Router from './Router';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './styles/GlobalStyle';
 import theme from './styles/theme';
-import { RecoilRoot } from 'recoil';
 
 const store = createStore(rootReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <RecoilRoot>
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <NiceModal.Provider>
-          <Router />
-        </NiceModal.Provider>
-      </ThemeProvider>
-    </Provider>
-  </RecoilRoot>
+  <Provider store={store}>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <NiceModal.Provider>
+        <Router />
+      </NiceModal.Provider>
+    </ThemeProvider>
+  </Provider>
 );

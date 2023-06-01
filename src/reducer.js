@@ -44,7 +44,35 @@ const initialState = {
   startDay: new Date(),
   endDay: new Date(Date.now() + 24 * 60 * 60 * 1000),
   zoneData: [],
-  reviewData: [],
+  reviewData: {
+    result: {
+      reviews: [
+        {
+          content: 'Well-maintained facilities.',
+          avgGrade: 4.8,
+          grade: {
+            cost_score: 4,
+            view_score: 5,
+            clean_score: 5,
+            safety_score: 5,
+            convenience_score: 5,
+          },
+          user_id: 1,
+          name: 'John Doe',
+        },
+      ],
+      total_grade: [
+        {
+          avg_view: 4.5,
+          avg_safety: 5,
+          avg_cost: 4,
+          avg_clean: 5,
+          avg_convenience: 4.5,
+          total_avg_grade: 4,
+        },
+      ],
+    },
+  },
   selectedZones: [],
   adultCount: 1,
   babyCount: 0,

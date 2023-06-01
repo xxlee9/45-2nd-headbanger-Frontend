@@ -17,6 +17,7 @@ const PayFlow = () => {
     petCount,
     totalPrice,
   } = useSelector(state => state);
+  const TOKEN = localStorage.getItem('token');
 
   // 날짜 계산하는 식
   const start = new Date(startDay).toISOString().split('T')[0];

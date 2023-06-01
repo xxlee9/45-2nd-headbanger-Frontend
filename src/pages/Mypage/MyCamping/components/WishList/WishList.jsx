@@ -7,7 +7,7 @@ import HeartIcon from '../../../../../assets/images/components/Common/HeartIcon'
 
 const WishList = () => {
   const [wishList, setWishList] = useState([]);
-  const TOKEN = localStorage.get('token');
+  const TOKEN = localStorage.getItem('token');
 
   useEffect(() => {
     axios

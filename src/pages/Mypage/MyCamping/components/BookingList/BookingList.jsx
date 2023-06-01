@@ -5,7 +5,7 @@ import { flexSort } from '../../../../../styles/mixin';
 
 const BookingList = () => {
   const [bookingList, setBookingList] = useState([]);
-  const TOKEN = localStorage.get('token');
+  const TOKEN = localStorage.getItem('token');
 
   useEffect(() => {
     axios

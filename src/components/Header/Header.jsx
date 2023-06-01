@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { flexSort } from '../../styles/mixin';
 
 const Navbar = () => {
-  const TOKEN = localStorage.getItem('TOKEN');
+  const TOKEN = localStorage.getItem('token');
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,16 +22,16 @@ const Navbar = () => {
 
   const { id, name, profile_image, theme_id } = userInfo;
 
-  useEffect(() => {
-    TOKEN &&
-      axios
-        .get('http://10.58.52.114:3000/users/loginedUser', {
-          headers: {
-            authorization: `${TOKEN}`,
-          },
-        })
-        .then(res => setUserInfo(res.data.result[0]));
-  }, []);
+  // useEffect(() => {
+  //   TOKEN &&
+  //     axios
+  //       .get('http://10.58.52.227:3000/users/loginedUser', {
+  //         headers: {
+  //           authorization: `${TOKEN}`,
+  //         },
+  //       })
+  //       .then(res => setUserInfo(res.data.result[0]));
+  // }, []);
 
   return (
     <Container>

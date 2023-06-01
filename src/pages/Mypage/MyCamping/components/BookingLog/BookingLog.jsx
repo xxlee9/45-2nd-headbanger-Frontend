@@ -7,7 +7,7 @@ import { flexSort } from '../../../../../styles/mixin';
 
 const BookingLogcopy = () => {
   const [logList, setLogList] = useState([]);
-  const TOKEN = localStorage.get('token');
+  const TOKEN = localStorage.getItem('token');
 
   const showReviewModal = () => {
     NiceModal.show(ReviewModal, { name: 'Review' });

@@ -22,6 +22,7 @@ const MainLocal = ({ regionCampingData }) => {
 
   const handleTourButtonClick = regionid => {
     navigate(`/productslist?regionId=${regionid}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -30,7 +31,7 @@ const MainLocal = ({ regionCampingData }) => {
         <Local> 지역별 캠핑장</Local>
         <StyledSlider {...settings}>
           {regionCampingData.map(({ id, name, count }) => (
-            <SliderItem key={id}>
+            <SliderItem key={id} onClick={() => handleTourButtonClick(id)}>
               <ImageContainer>
                 <ImageOverlay />
                 <ItemImage
@@ -148,6 +149,7 @@ const SliderItem = styled.div`
   position: relative;
   padding: 30px 30px 15px 0;
   height: 200px;
+  cursor: pointer;
 `;
 
 const ImageOverlay = styled.div`

@@ -8,6 +8,7 @@ import { flexSort, fontMix } from '../../../styles/mixin';
 
 const MyCamping = () => {
   const [menuTab, setMenuTab] = useState('BookingList');
+  const TOKEN = localStorage.getItem('token');
 
   return (
     <Container>

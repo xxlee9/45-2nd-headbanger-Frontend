@@ -6,9 +6,9 @@ import StarRating from './StarRating';
 import styled from 'styled-components';
 import { flexSort } from '../../../../../../styles/mixin';
 
-export default NiceModal.create(({ ReviewModal }) => {
+export default NiceModal.create(({ id }) => {
   const [totalReview, setTotalReview] = useState({
-    campId: '2',
+    campId: id,
     view: '',
     safety: '',
     cost: '',
@@ -17,7 +17,6 @@ export default NiceModal.create(({ ReviewModal }) => {
     content: '',
   });
   const TOKEN = localStorage.getItem('token');
-
   const modal = useModal();
 
   const closeModal = () => {
@@ -43,7 +42,7 @@ export default NiceModal.create(({ ReviewModal }) => {
 
   const addReview = () => {
     axios
-      .post('http://10.58.52.176:3000/review', totalReview, {
+      .post('http://10.58.52.227:3000/reviews', totalReview, {
         headers: {
           'Content-Type': 'application/json',
           authorization: TOKEN,

@@ -13,8 +13,9 @@ export default NiceModal.create(({ LogoutModal }) => {
   };
 
   const logOut = () => {
-    localStorage.removeItem('TOKEN');
-    closeModal();
+    localStorage.removeItem('token');
+    localStorage.removeItem('isLoggedIn');
+    window.location.reload();
   };
 
   return (

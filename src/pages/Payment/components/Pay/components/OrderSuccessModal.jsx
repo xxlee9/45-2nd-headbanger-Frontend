@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import NiceModal, { useModal } from '@ebay/nice-modal-react';
 import styled from 'styled-components';
 import { flexSort } from '../../../../../styles/mixin';
 
 export default NiceModal.create(({ OrderSuccessModal }) => {
+  const [orderInfo, setOrderInfo] = useState({});
   const modal = useModal();
 
   const closeModal = () => {
     modal.remove(OrderSuccessModal);
     document.body.style.overflow = 'unset';
+    window.location.replace('http://localhost:3000/mypage');
   };
-
   return (
     <Container>
       <View>
         <ModalImg src="/images/Mypage/tent-modal.png" />
         <TextBox>
           <Title>결제가 완료되었습니다..</Title>
-          <ThanksComment>감사합니다.</ThanksComment>
+          <ThanksComment>감사합니다</ThanksComment>
         </TextBox>
         <BtnBox>
           <OkBtn onClick={closeModal}>확인</OkBtn>

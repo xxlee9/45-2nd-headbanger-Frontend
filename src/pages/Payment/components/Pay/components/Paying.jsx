@@ -21,6 +21,7 @@ const Paying = () => {
   const tid = localStorage.getItem('tid');
 
   const totalZone = campingZoneId.split(',').map(Number);
+  const TOKEN = localStorage.getItem('token');
 
   const orderData = {
     pgToken: PG_TOKEN,
@@ -41,8 +42,7 @@ const Paying = () => {
       .post('http://10.58.52.227:3000/payments', orderData, {
         headers: {
           'Content-Type': 'application/json',
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjg1NDQ4MTY2LCJleHAiOjE2ODU4ODAxNjYsImlzcyI6InRlc3QifQ.kRipmwMsE6dCdpmr9_JvWJwsWKhnhJ1c44Fa-Fm8HLc',
+          authorization: TOKEN,
         },
       })
       .then(data => {

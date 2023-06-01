@@ -20,19 +20,26 @@ const PayFlow = () => {
   const TOKEN = localStorage.getItem('token');
 
   // 날짜 계산하는 식
-  const start = new Date(startDay).toISOString().split('T')[0];
-  const startDate = new Date(new Date(start).getTime() + 24 * 60 * 60 * 1000)
-    .toISOString()
-    .split('T')[0];
-  const end = new Date(endDay).toISOString().split('T')[0];
-  const endDate = new Date(new Date(end).getTime() + 24 * 60 * 60 * 1000)
-    .toISOString()
-    .split('T')[0];
+  let formattedStartDate = '';
+  let formattedEndDate = '';
 
-  const totalNights =
-    endDay >= startDay
-      ? Math.ceil((endDay - startDay) / (1000 * 60 * 60 * 24))
-      : 0;
+  if (startDay && endDay) {
+    const startYear = startDay.getFullYear();
+    const startMonth = startDay.getMonth() + 1;
+    const startDayOfMonth = startDay.getDate();
+    const formattedStartMonth = startMonth < 10 ? `0${startMonth}` : startMonth;
+    const formattedStartDay =
+      startDayOfMonth < 10 ? `0${startDayOfMonth}` : startDayOfMonth;
+    formattedStartDate = `${startYear}-${formattedStartMonth}-${formattedStartDay}`;
+
+    const endYear = endDay.getFullYear();
+    const endMonth = endDay.getMonth() + 1;
+    const endDayOfMonth = endDay.getDate();
+    const formattedEndMonth = endMonth < 10 ? `0${endMonth}` : endMonth;
+    const formattedEndDay =
+      endDayOfMonth < 10 ? `0${endDayOfMonth}` : endDayOfMonth;
+    formattedEndDate = `${endYear}-${formattedEndMonth}-${formattedEndDay}`;
+  }
   // ----------------
   const { campName, region, address, thumbnail } = productData.data;
   const totalPeopleCount = adultCount + childCount + babyCount;
@@ -53,7 +60,7 @@ const PayFlow = () => {
     quantity: totalCampZone.length,
     total_amount: totalPrice,
     tax_free_amount: 0,
-    approval_url: `http://localhost:3000/paying?totalMembers=${totalPeopleCount}&campingZoneId=${totalCampZone}&startDate=${startDate}&endDate=${endDate}&totalPrice=${totalPrice}
+    approval_url: `http://localhost:3000/paying?totalMembers=${totalPeopleCount}&campingZoneId=${totalCampZone}&startDate=${formattedStartDate}&endDate=${formattedEndDate}&totalPrice=${totalPrice}
     `,
     fail_url: 'http://localhost:3000/payfail',
     cancel_url: 'http://localhost:3000/paycancel',
@@ -79,37 +86,59 @@ const PayFlow = () => {
   return (
     <Container>
       <ViewBox>
-        <FlowBar>
-          <CampInfoBox>
-            <CampImg src={thumbnail} alt="캠핑장 사진" />
-            <CampInfo>
-              <CampName>{campName}</CampName>
-              <p>{address}</p>
-              <CampRegion>{region}</CampRegion>
-            </CampInfo>
-          </CampInfoBox>
-          <DataInfoBox>
-            <StartDate>체크인 : {startDate}</StartDate>
-            <EndDate>체크아웃 :{endDate}</EndDate>
-            <Night>
-              총 일수 : {totalNights}박 {totalNights + 1}일
-            </Night>
-          </DataInfoBox>
-          <NextImg src="/images/Payment/right-arrow.png" />
-          <ZoneBox>
-            {zoneList.map(zone => {
-              return <ZoneList key={zone}>사이트 : {zone}</ZoneList>;
-            })}
-          </ZoneBox>
-          <TotalPrice>
-            <PriceTitle>최종 결제금액</PriceTitle>
-            <Price>{payPrice}원</Price>
-          </TotalPrice>
-          <PayButton href={nextRedirectPcUrl}>
-            <PayImg src="/images/Payment/pay-arrow.png" />
-            <PayTitle>결제</PayTitle>
-          </PayButton>
-        </FlowBar>
+        <ViewSection>
+          <ProductInfo>
+            <ProductTitle>상품정보</ProductTitle>
+            <ProductBox>
+              <ProductImg>
+                <Img src={thumbnail} alt="캠핑장 사진" />
+              </ProductImg>
+              <CampInfoBox>
+                <CampName>{campName}</CampName>
+                <Adress>{address}</Adress>
+                <Region>{region}</Region>
+              </CampInfoBox>
+            </ProductBox>
+          </ProductInfo>
+          <ReservationInfo>
+            <ResevationTitle>예약정보</ResevationTitle>
+            <ReservationInfoBox>
+              <GuestInfo>
+                <AdultBox>성인: {adultCount}</AdultBox>
+                <ChildBox>어린이 : {childCount}</ChildBox>
+                <BabyBox>유아 : {babyCount}</BabyBox>
+              </GuestInfo>
+              <ZoneBox>
+                {zoneList.map(zone => {
+                  return <ZoneInfo key={zone}>사이트 : {zone}</ZoneInfo>;
+                })}
+                <DayInfo>
+                  {startDay &&
+                    startDay.toLocaleDateString('ko-KR', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}{' '}
+                  ~{' '}
+                  {endDay &&
+                    endDay.toLocaleDateString('ko-KR', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}{' '}
+                  {/* / {totalNights}박 {totalNights + 1}일 */}
+                </DayInfo>
+              </ZoneBox>
+            </ReservationInfoBox>
+          </ReservationInfo>
+          <PriceInfo>
+            <PriceTitle>총 결제금액</PriceTitle>
+            <TotalPrice>{payPrice}원</TotalPrice>
+          </PriceInfo>
+        </ViewSection>
+        <PayBtn href={nextRedirectPcUrl}>
+          <ButtonText>결제하기</ButtonText>
+        </PayBtn>
       </ViewBox>
     </Container>
   );
@@ -117,168 +146,172 @@ const PayFlow = () => {
 
 export default PayFlow;
 
-// @media screen and (max-width: 768px) {
-//   flex-direction: column;
-//   padding: 0 24px;
-// }
-
 const Container = styled.div`
-  width: 100%;
+  width: 50%;
   height: 100%;
   position: sticky;
-  bottom: 40px;
+  top: 60px;
 `;
 
 const ViewBox = styled.div`
+  ${flexSort('center', 'center')}
+  flex-direction: column;
+  gap: 12px;
+  width: 323px;
+  height: 100%;
+  border: 1px solid ${props => props.theme.borderGrey};
+  border-radius: 5px;
+  padding: 24px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+`;
+
+const ViewSection = styled.div`
+  ${flexSort('center', 'center')}
+  flex-direction: column;
   width: 100%;
   height: 100%;
 `;
 
-const FlowBar = styled.div`
+const ProductInfo = styled.div`
+  ${flexSort('center', 'start')}
+  flex-direction: column;
   width: 100%;
   height: 100%;
-  ${flexSort('space-between', 'center')}
-  gap: 20px;
-  padding: 16px 40px;
-  background-color: ${props => props.theme.mainBlack};
+  border-bottom: 1px solid ${props => props.theme.middleGrey};
+`;
+
+const ProductTitle = styled.h2`
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+`;
+
+const ProductBox = styled.div`
+  ${flexSort('center', 'center')}
+  gap: 12px;
+  padding: 24px 0;
+  width: 100%;
+`;
+
+const ProductImg = styled.div`
+  width: 100px;
+  height: 120px;
+`;
+
+const Img = styled.img`
+  width: 100px;
+  height: 120px;
+  border-radius: 12px;
 `;
 
 const CampInfoBox = styled.div`
-  ${flexSort('center', 'start')}
-  position: relative;
-  gap: 8px;
-  width: 100%;
-  max-width: 280px;
-  height: 100%;
-
-  ::after {
-    content: '';
-    width: 100%;
-    height: 80px;
-    position: absolute;
-    top: 20px;
-    border-right: 2px solid ${props => props.theme.mainYellow};
-  }
-`;
-
-const CampImg = styled.img`
-  width: 120px;
-  height: 120px;
-  border-radius: 10px;
-`;
-
-const CampInfo = styled.div`
-  width: 100%;
-  height: 100%;
+  ${flexSort('start', 'start')}
+  flex-direction: column;
   padding-top: 8px;
+  width: 100%;
+  height: 140px;
 `;
 
 const CampName = styled.p`
-  width: 100%;
-  font-size: 16px;
-  color: ${props => props.theme.white};
+  font-size: 20px;
+  line-height: 32px;
 `;
 
-const CampRegion = styled.p`
-  font-size: 12px;
-  color: ${props => props.theme.white};
+const Adress = styled.p`
+  font-size: 14px;
+  line-height: 20px;
 `;
 
-const DataInfoBox = styled.div`
+const Region = styled.p`
+  font-size: 14px;
+  line-height: 20px;
+`;
+
+const ReservationInfo = styled.div`
   ${flexSort('center', 'start')}
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   width: 100%;
-  max-width: 200px;
-  height: 120px;
+  height: 100%;
+  padding: 24px 0;
+  border-bottom: 1px solid ${props => props.theme.middleGrey};
 `;
 
-const StartDate = styled.p`
-  font-size: 16px;
-  color: ${props => props.theme.white};
+const ResevationTitle = styled.h2`
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 40px;
 `;
 
-const EndDate = styled.p`
-  font-size: 16px;
-  color: ${props => props.theme.white};
+const ReservationInfoBox = styled.div`
+  ${flexSort('center', 'start')}
+  gap: 8px;
+  flex-direction: column;
 `;
 
-const Night = styled.p`
-  font-size: 16px;
-  color: ${props => props.theme.white};
+const GuestInfo = styled.div`
+  ${flexSort('center', 'start')}
+  flex-direction: column;
 `;
 
-const NextImg = styled.img`
-  width: 48px;
-  height: 48px;
+const AdultBox = styled.div`
+  ${flexSort('center', 'center')}
+  line-height: 1.4;
+`;
+
+const ChildBox = styled.div`
+  ${flexSort('center', 'center')}
+  line-height: 1.4;
+`;
+
+const BabyBox = styled.div`
+  ${flexSort('center', 'center')}
+  line-height: 1.4;
 `;
 
 const ZoneBox = styled.div`
-  ${flexSort('center', 'center')};
+  ${flexSort('center', 'start')}
   flex-direction: column;
-  position: relative;
-  width: 100%;
-  max-width: 160px;
-  height: 120px;
-  gap: 8px;
-  ::after {
-    content: '';
-    width: 100%;
-    height: 80px;
-    position: absolute;
-    top: 20px;
-    border-right: 2px solid ${props => props.theme.mainYellow};
-  }
 `;
 
-const ZoneList = styled.p`
-  width: 100%;
-  font-size: 16px;
-  color: ${props => props.theme.white};
-`;
-
-const TotalPrice = styled.div`
+const ZoneInfo = styled.div`
   ${flexSort('center', 'center')}
-  flex-direction: column;
-  gap: 24px;
+  line-height: 1.4;
+`;
+
+const DayInfo = styled.div`
+  ${flexSort('center', 'center')}
+  font-size: 12px;
+  line-height: 1.4;
+`;
+
+const PriceInfo = styled.div`
+  ${flexSort('space-between', 'center')}
+  padding: 20px 0;
   width: 100%;
-  max-width: 200px;
-  height: 120px;
+  height: 100%;
 `;
 
 const PriceTitle = styled.p`
-  font-size: 20px;
-  color: ${props => props.theme.white};
+  font-size: 24px;
 `;
 
-const Price = styled.p`
-  font-size: 20px;
-  color: #bf2828;
+const TotalPrice = styled.p`
+  font-size: 24px;
+  font-weight: 600;
 `;
 
-const PayButton = styled.a`
+const PayBtn = styled.a`
   ${flexSort('center', 'center')}
-  flex-direction: column;
-  text-decoration-line: none;
-  color: initial;
-  gap: 12px;
-  width: 80%;
-  max-width: 120px;
-  height: 120px;
-  border-radius: 20px;
-  background-color: ${props => props.theme.mainGreen};
+  width: 100%;
+  height: 48px;
+  border: 0;
+  background-color: ${props => props.theme.mainBlack};
+  color: ${props => props.theme.white};
+  border-radius: 12px;
   :hover {
-    opacity: 0.9;
     cursor: pointer;
   }
 `;
 
-const PayImg = styled.img`
-  width: 40px;
-  height: 40px;
-`;
-
-const PayTitle = styled.p`
-  font-size: 24px;
-  color: ${props => props.theme.white};
-`;
+const ButtonText = styled.p``;

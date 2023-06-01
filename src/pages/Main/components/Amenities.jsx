@@ -7,7 +7,8 @@ const Amenities = ({ amenitiesData }) => {
   const navigate = useNavigate();
 
   const handleImageClick = id => {
-    navigate(`/products?amenityId=${id}`);
+    navigate(`productslist?amenityId=${id}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (

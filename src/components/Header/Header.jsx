@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import HeaderMenu from './componenets/HeaderMenu';
 import axios from 'axios';
 import styled from 'styled-components';
 import { flexSort } from '../../styles/mixin';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const TOKEN = localStorage.getItem('token');
-
+  const [ok, setOk] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [userInfo, setUserInfo] = useState({});
-
-  useEffect(() => {
-    userInfo && setIsLoggedIn(prev => !prev);
-  }, []);
 
   const showMore = () => {
     setIsMenuOpen(prev => !prev);
@@ -22,22 +19,33 @@ const Navbar = () => {
 
   const { id, name, profile_image, theme_id } = userInfo;
 
-  // useEffect(() => {
-  //   TOKEN &&
-  //     axios
-  //       .get('http://10.58.52.227:3000/users/loginedUser', {
-  //         headers: {
-  //           authorization: `${TOKEN}`,
-  //         },
-  //       })
-  //       .then(res => setUserInfo(res.data.result[0]));
-  // }, []);
+  useEffect(() => {
+    TOKEN && setOk(prev => !prev);
+  }, []);
+
+  useEffect(() => {
+    TOKEN &&
+      axios
+        .get('http://10.58.52.227:3000/users/loginedUser', {
+          headers: {
+            authorization: TOKEN,
+          },
+        })
+        .then(res => {
+          if (res.data.result.length > 0) {
+            setUserInfo(res.data.result[0]);
+            setIsLoggedIn(true);
+          } else {
+            setIsLoggedIn(false);
+          }
+        });
+  }, [TOKEN]);
 
   return (
     <Container>
       <Nav>
         <Link to="/">
-          <LogoImg>CVG</LogoImg>
+          <LogoImg src="/images/components/Header/cvgLogo.svg" />
         </Link>
         <UserBox>
           {isLoggedIn ? (
@@ -79,11 +87,9 @@ const Nav = styled.nav`
   position: relative;
 `;
 
-const LogoImg = styled.h1`
-  font-size: 21px;
-  font-weight: 600;
-  padding-right: 20px;
-  color: ${props => props.theme.white};
+const LogoImg = styled.img`
+  width: 40px;
+  height: 40px;
 `;
 
 const UserBox = styled.div`

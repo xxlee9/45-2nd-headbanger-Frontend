@@ -2,10 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { flexSort } from '../../../../../styles/mixin';
+import { Link } from 'react-router-dom';
 
 const BookingList = () => {
   const [bookingList, setBookingList] = useState([]);
   const TOKEN = localStorage.getItem('token');
+
+  const toDetail = () => {
+    window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
     axios
@@ -16,12 +21,14 @@ const BookingList = () => {
       })
       .then(res => setBookingList(res.data.scheduledList));
   }, []);
+
   return (
     <Container>
       <ViewBox>
         {bookingList &&
           bookingList.map(
             ({
+              campId,
               campingZoneNames,
               campsiteName,
               endDate,
@@ -32,10 +39,12 @@ const BookingList = () => {
               reservationNumber,
             }) => {
               return (
-                <BookingView key={1}>
-                  <ImgBox>
-                    <BookingImg src={thumbnail} alt="캠핑장 사진" />
-                  </ImgBox>
+                <BookingView key={campId} onClick={toDetail}>
+                  <Link to={`/productdetail/${campId}`}>
+                    <ImgBox>
+                      <BookingImg src={thumbnail} alt="캠핑장 사진" />
+                    </ImgBox>
+                  </Link>
                   <BookingDescription>
                     <BookingNumber>
                       예약번호 : {reservationNumber}

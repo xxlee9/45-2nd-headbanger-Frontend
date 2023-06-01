@@ -11,7 +11,7 @@ const WishList = () => {
 
   useEffect(() => {
     axios
-      .get('http://10.58.52.114:3000/wish', {
+      .get('http://10.58.52.227:3000/wishs', {
         headers: {
           authorization: TOKEN,
         },

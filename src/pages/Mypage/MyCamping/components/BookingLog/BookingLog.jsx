@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import NiceModal from '@ebay/nice-modal-react';
+import NiceModal, { useModal } from '@ebay/nice-modal-react';
 import ReviewModal from './Review/ReviewModal';
 import styled from 'styled-components';
 import { flexSort } from '../../../../../styles/mixin';
@@ -9,8 +10,13 @@ const BookingLogcopy = () => {
   const [logList, setLogList] = useState([]);
   const TOKEN = localStorage.getItem('token');
 
+  const reviewModal = useModal(ReviewModal);
   const showReviewModal = () => {
-    NiceModal.show(ReviewModal, { name: 'Review' });
+    reviewModal.show({ id: logList[0].campId });
+  };
+
+  const toDetail = () => {
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
@@ -29,6 +35,7 @@ const BookingLogcopy = () => {
         {logList &&
           logList.map(
             ({
+              campId,
               campingZoneNames,
               campsiteName,
               endDate,
@@ -39,10 +46,12 @@ const BookingLogcopy = () => {
               reservationNumber,
             }) => {
               return (
-                <BookingView key={1}>
-                  <ImgBox>
-                    <BookingImg src={thumbnail} alt="캠핑장 사진" />
-                  </ImgBox>
+                <BookingView key={campId}>
+                  <Link to={`/productdetail/${campId}`} onClick={toDetail}>
+                    <ImgBox>
+                      <BookingImg src={thumbnail} alt="캠핑장 사진" />
+                    </ImgBox>
+                  </Link>
                   <BookingDescription>
                     <BookingNumber>
                       예약번호 : {reservationNumber}

@@ -1,0 +1,12 @@
+{
+  "reservationId": 22,
+  "reservationNumber": "b45eefc7-6a77-44e4-b60a-098b6936eb0e",
+  "campsiteName": "서울 팔당 캠핑장",
+  "startDate": "2023-05-03",
+  "endDate": "2023-05-15",
+  "totalPrice": "80000.00",
+  "totalMembers": 5,
+  "address": "서울 강동구 팔당동 1-23",
+  "regionName": "수도권",
+  "campingZoneNames": ["A1", "A2"]
+}

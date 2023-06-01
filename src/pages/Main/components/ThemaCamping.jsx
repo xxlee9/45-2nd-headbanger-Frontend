@@ -9,7 +9,8 @@ const ThemaCamping = ({ themaCampingData }) => {
   const navigate = useNavigate();
 
   const handleCurrentIdClick = themeId => {
-    navigate(`/products?themeId=${themeId}`);
+    navigate(`/productslist?themeId=${themeId}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const ThemaCamping = ({ themaCampingData }) => {
         <ImgBox>
           <ThemaCampingItem>
             <ThemaCampingImg
-              src={`/images/Main/Thema${currentId}.jpg`}
+              src={`/images/Main/Thema${currentId + 1}.jpg`}
               alt="테마별 캠핑장"
             />
           </ThemaCampingItem>
@@ -39,7 +40,9 @@ const ThemaCamping = ({ themaCampingData }) => {
                 <ThemaWrap>
                   <ThemaItem
                     onMouseEnter={() => setCurrentId(thema[0].id)}
-                    onClick={() => navigate(`/products?themeId=${thema[0].id}`)}
+                    onClick={() =>
+                      navigate(`/productslist?themeId=${thema[0].id}`)
+                    }
                   >
                     도심 체험 캠핑
                     <Place>#도심 #도시 #글램핑</Place>
@@ -52,7 +55,9 @@ const ThemaCamping = ({ themaCampingData }) => {
                 <ThemaWrap>
                   <ThemaItem
                     onMouseEnter={() => setCurrentId(thema[1].id)}
-                    onClick={() => navigate(`/products?themeId=${thema[1].id}`)}
+                    onClick={() =>
+                      navigate(`/productslist?themeId=${thema[1].id}`)
+                    }
                   >
                     자연 모험 캠핑
                     <Place>#산 #등산 #트레킹</Place>
@@ -65,7 +70,9 @@ const ThemaCamping = ({ themaCampingData }) => {
                 <ThemaWrap>
                   <ThemaItem
                     onMouseEnter={() => setCurrentId(thema[2].id)}
-                    onClick={() => navigate(`/products?themeId=${thema[2].id}`)}
+                    onClick={() =>
+                      navigate(`/productslist?themeId=${thema[2].id}`)
+                    }
                   >
                     해변 휴식 캠핑
                     <Place>#바다 #해변 #해변휴양</Place>
@@ -78,7 +85,9 @@ const ThemaCamping = ({ themaCampingData }) => {
                 <ThemaWrap>
                   <ThemaItem
                     onMouseEnter={() => setCurrentId(thema[3].id)}
-                    onClick={() => navigate(`/products?themeId=${thema[3].id}`)}
+                    onClick={() =>
+                      navigate(`/productslist?themeId=${thema[3].id}`)
+                    }
                   >
                     맑은 자연 캠핑
                     <Place> #호수 #자연 #호수라이프</Place>

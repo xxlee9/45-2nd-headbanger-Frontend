@@ -8,8 +8,11 @@ const Payment = () => {
   return (
     <Container>
       <ViewBox>
-        <PayFlow />
-        <Pay />
+        <PayTitle>확인 및 결제</PayTitle>
+        <PayBox>
+          <Pay />
+          <PayFlow />
+        </PayBox>
       </ViewBox>
     </Container>
   );
@@ -18,14 +21,27 @@ const Payment = () => {
 export default Payment;
 
 const Container = styled.div`
+  ${flexSort('center', 'center')}
   width: 100%;
   height: 100%;
+  padding-top: 80px;
 `;
 
 const ViewBox = styled.div`
-  ${flexSort('center', 'center')}
+  ${flexSort('center', 'space-between')}
   flex-direction: column;
   gap: 60px;
-  width: 100%;
+  width: 1100px;
   height: 100%;
+  max-width: 1100px;
+`;
+
+const PayTitle = styled.h1`
+  font-size: 32px;
+  font-weight: 600;
+`;
+
+const PayBox = styled.div`
+  ${flexSort('space-between', 'center')}
+  align-items: flex-start;
 `;

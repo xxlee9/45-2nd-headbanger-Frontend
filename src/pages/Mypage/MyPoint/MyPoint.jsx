@@ -15,15 +15,14 @@ const MyPoint = () => {
       <ViewBox>
         <WelcomeBox>
           <WelcomeTitle>
-            안녕하세요. 김태원님
-            <br />
-            어디로든 떠나고 싶은 날이네요!
+            <p>오늘은 왠지</p>
+            <p>어디로든 떠나고 싶은 날이네요!</p>
           </WelcomeTitle>
         </WelcomeBox>
         <PointBox>
           <PointSection>
             <PointTitle>내 포인트</PointTitle>
-            <PointText>20,000P</PointText>
+            <PointText>600,000P</PointText>
           </PointSection>
           <ServiceSection>
             {SERVICE_DATA.map(({ id, title, url }) => {
@@ -83,6 +82,8 @@ const WelcomeBox = styled.div`
 
 const WelcomeTitle = styled.h3`
   ${flexSort('center', 'center')}
+  flex-direction: column;
+  gap: 36px;
   width: 100%;
   height: 100%;
   font-size: 24px;

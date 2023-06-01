@@ -42,7 +42,7 @@ export const LOCATION_DESCRIPTIONS = {
     label: '1000년의 수도 영남지방',
     emoji: '🏯',
   },
-  제주도: {
+  제주: {
     label: '우리 모두가 꿈꾸던 그곳 제주',
     emoji: '🏝️',
   },

@@ -14,7 +14,7 @@ const Main = () => {
   const [amenitiesData, setAmenitiesData] = useState([]);
 
   useEffect(() => {
-    fetch('http://10.58.52.114:3000/products/categories', {
+    fetch('http://10.58.52.227:3000/products/categories', {
       method: 'GET',
     })
       .then(res => res.json())

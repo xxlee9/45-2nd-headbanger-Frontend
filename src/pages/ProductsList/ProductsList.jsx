@@ -34,6 +34,8 @@ const ProductsList = () => {
     };
 
     fetchProducts();
+
+    window.scrollTo(0, 0);
   }, [campId, searchParams]);
 
   // useEffect(() => {

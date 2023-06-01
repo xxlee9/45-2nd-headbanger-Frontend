@@ -26,13 +26,13 @@ const ClickableZone = ({
 
 const ClickableBox = styled.polygon`
   fill: ${props =>
-    props.isHovered || props.isSelected ? '#FFC107' : props.color};
+    props.isHovered || props.isSelected ? '#8FBF9F' : props.color};
   stroke: ${props => props.color};
   stroke-width: 0;
   transition: fill 0.2s;
 
   &:hover {
-    fill: '#FFC107';
+    fill: '#8FBF9F';
     cursor: pointer;
   }
 `;

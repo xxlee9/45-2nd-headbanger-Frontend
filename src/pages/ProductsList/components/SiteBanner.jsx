@@ -20,7 +20,7 @@ const CampingBanner = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #f5efe7;
+  background-color: #f5f5f5;
 
   @media (max-width: 768px) {
   }

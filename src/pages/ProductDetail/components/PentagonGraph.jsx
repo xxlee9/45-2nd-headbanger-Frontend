@@ -100,19 +100,19 @@ const PentagonGraph = ({
         })}
         <polygon
           points={points.map(p => `${p.x},${p.y}`).join(' ')}
-          fill="#f9dd4a"
-          stroke="orange"
+          fill="#8FBF9F"
+          stroke="#24613B"
           opacity={tooltip.opacity}
           onMouseEnter={() =>
             setTooltip({
               visible: true,
-              opacity: 0.9,
+              opacity: 0.8,
             })
           }
           onMouseLeave={() => setTooltip({ visible: false, opacity: 0.6 })}
         />
         {points.map((p, i) => (
-          <circle cx={p.x} cy={p.y} r={2} fill="red" key={i} />
+          <circle cx={p.x} cy={p.y} r={2} fill="#24613B" key={i} />
         ))}
         {tooltip.visible &&
           points.map((p, i) => (

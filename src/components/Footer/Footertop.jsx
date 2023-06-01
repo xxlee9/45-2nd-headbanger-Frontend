@@ -15,6 +15,7 @@ const Footertop = () => {
 export default Footertop;
 
 const FooterInfo = styled.div`
+  margin-top: 60px;
   ${fontMix(12, 'white')}
   ${flexSort('space-around', 'center')}
   background-color: ${props => props.theme.mainBlack};

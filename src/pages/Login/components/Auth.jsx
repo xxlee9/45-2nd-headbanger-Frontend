@@ -11,7 +11,7 @@ const Auth = () => {
   const [accessToken, setAccessToken] = useState('');
 
   const exchangeKakaoToken = async accessToken => {
-    const url = 'http://10.58.52.214:3001/users/kakao';
+    const url = 'http://10.58.52.227:3000/users/kakao';
     const body = JSON.stringify({
       accessToken: accessToken,
     });
@@ -30,6 +30,8 @@ const Auth = () => {
         const data = await response.json();
         const jwtToken = data.webToken;
         window.localStorage.setItem('token', jwtToken);
+
+        console.log(jwtToken);
         navigate('/');
       } else {
       }

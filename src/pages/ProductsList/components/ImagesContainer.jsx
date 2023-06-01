@@ -35,6 +35,8 @@ const ImagesContainer = ({ id, searchParams, campId }) => {
     } catch (error) {}
   };
 
+  console.log(product);
+
   useEffect(() => {
     fetchProducts();
   }, [searchParams]);

@@ -7,13 +7,13 @@ import { useSelector } from 'react-redux';
 const getColor = zoneName => {
   switch (zoneName[0]) {
     case 'A':
-      return '##78716c';
+      return '#252525';
     case 'B':
-      return '##78716c';
+      return '#252525';
     case 'C':
-      return '##78716c';
+      return '#252525';
     default:
-      return '##78716c';
+      return '#252525';
   }
 };
 

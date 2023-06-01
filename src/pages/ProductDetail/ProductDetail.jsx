@@ -16,7 +16,6 @@ import RemoteCon from './components/RemoteCon';
 import Facilities from './components/Facilities';
 import CalendarProduct from './components/CalendarProduct';
 import ProductReview from './components/ProductReview';
-import SearchBar from '../../components/Nav/SearchBar';
 import KakaoMap from './components/KakaoMap';
 const ProductDetail = () => {
   const overviewRef = useRef();
@@ -85,7 +84,6 @@ const ProductDetail = () => {
 
   return (
     <Container>
-      <SearchBar />
       <Pictures />
       <ProductNavWrapper>
         <ProductNav

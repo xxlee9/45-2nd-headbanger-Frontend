@@ -26,7 +26,7 @@ const FilterTitle = styled.div`
 const Line = styled.div`
   ${boxSize('240', '2')}
   margin-bottom: 16px;
-  background-color: #f5efe7;
+  background-color: #f5f5f5;
 `;
 
 export default FilterDetail;

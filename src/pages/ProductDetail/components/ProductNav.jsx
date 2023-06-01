@@ -55,7 +55,7 @@ const Container = styled.div`
 const SectionButton = styled.button`
   background: none;
   border: none;
-  color: #000;
+  color: #252525;
   padding: 8px;
   margin-right: 20px;
   font-size: 16px;
@@ -63,8 +63,8 @@ const SectionButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: #ffcc00;
-    border-bottom: 2px solid #ffcc00;
+    color: #8fbf9f;
+    border-bottom: 2px solid #8fbf9f;
   }
 `;
 

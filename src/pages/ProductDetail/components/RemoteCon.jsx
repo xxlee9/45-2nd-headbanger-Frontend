@@ -47,7 +47,6 @@ const RemoteCon = ({ calendarRef, viewMapRef }) => {
   const [showModal, setShowModal] = useState(false);
   const calculatewithOutFeePrice = () => {
     let withOutFeePrice = 0;
-
     if (selectedZones.length > 0) {
       withOutFeePrice = selectedZones.reduce((total, zone) => {
         const zonePrice = parseInt(price) + zone.additionalPrice;
@@ -58,9 +57,12 @@ const RemoteCon = ({ calendarRef, viewMapRef }) => {
         return total + zonePrice * totalNights;
       }, 0);
     }
-
     return withOutFeePrice;
   };
+  useEffect(() => {
+    const newWithoutFeePrice = calculatewithOutFeePrice();
+    setwithOutFeePrice(newWithoutFeePrice);
+  }, [selectedZones, startDay, endDay]);
 
   const selectedZoneNames = selectedZones
     .map(zone => zone.zoneName)
@@ -476,8 +478,8 @@ const Box = styled.div`
   }
 `;
 const NewBox = styled.button`
-  color: ${theme.mainBlack};
-  background-color: ${theme.mainYellow};
+  color: #fefefe;
+  background-color: #252525;
   width: 100%;
   height: 40px;
   margin-top: 16px;
@@ -646,5 +648,6 @@ const TotalAmountItemLabel = styled.div`
 `;
 
 const TotalAmountItemValue = styled(PriceValue)`
+  ${fontMix(21)};
   font-weight: bold;
 `;

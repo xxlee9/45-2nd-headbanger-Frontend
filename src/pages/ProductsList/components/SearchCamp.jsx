@@ -27,7 +27,7 @@ const SearchCamp = ({ product }) => {
   }, [product, searchTerm]);
 
   return (
-    <Container>
+    <>
       <SearchCampingInput
         placeholder="다음 여행지는 어디신가요?"
         value={searchTerm}
@@ -40,18 +40,9 @@ const SearchCamp = ({ product }) => {
             <div>{campsite.campsite_name}</div>
           </Camp>
         ))}
-    </Container>
+    </>
   );
 };
-
-const Container = styled.div`
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    width: 100%;
-  }
-`;
 
 const SearchCampingInput = styled.input`
   ${boxSize(240, 40)}
@@ -62,7 +53,7 @@ const SearchCampingInput = styled.input`
   padding: 0 0 0 16px;
   border-radius: 12px;
   color: ${props => props.theme.deepGrey};
-  background-color: #f5efe7;
+  background-color: #f5f5f5;
 `;
 
 const SearchBtn = styled.button`
@@ -75,13 +66,13 @@ const SearchBtn = styled.button`
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url('../images/ProductsList/search.png');
-  background-color: #f5efe7;
+  background-color: #f5f5f5;
 `;
 
 const Camp = styled.div`
   ${boxSize(240)}
   ${fontMix(13, 252525)} 
-  padding: 14px 0px 12px 16px;
+  padding: 10px 0px 12px 16px;
   background-color: rgba(245, 239, 231, 0.2);
 `;
 

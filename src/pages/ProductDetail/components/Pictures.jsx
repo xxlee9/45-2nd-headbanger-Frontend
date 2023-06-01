@@ -28,10 +28,12 @@ const ImageContainer = styled.div`
   display: grid;
   grid-template-columns: 535px 1fr;
   grid-gap: 10px;
+  margin-top: 60px;
 `;
 
 const Image = styled.img`
   ${boxSize(530, 400)};
+  border-radius: 8px;
   transition: filter 0.3s ease;
   &:hover {
     filter: brightness(80%);

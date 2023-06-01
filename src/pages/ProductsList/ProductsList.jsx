@@ -36,9 +36,9 @@ const ProductsList = () => {
     fetchProducts();
   }, [campId, searchParams]);
 
-  useEffect(() => {
-    setSearchParams(new URLSearchParams());
-  }, []);
+  // useEffect(() => {
+  //   setSearchParams(new URLSearchParams());
+  // }, []);
 
   return (
     <Wrap>
@@ -104,7 +104,7 @@ const FeedModal = styled.div`
 const LeftSideContainer = styled.div`
   width: 30%;
   position: sticky;
-  top: 0;
+  top: 20px;
   @media screen and (max-width: 768px) {
     ${flexSort('center', 'center')}
     flex-direction: row-reverse;

@@ -33,8 +33,8 @@ const PayFlow = () => {
       ? Math.ceil((endDay - startDay) / (1000 * 60 * 60 * 24))
       : 0;
   // ----------------
-
-  const { campName, region, address, thumbnail } = productData.data[0];
+  console.log(productData.data.address);
+  const { campName, region, address, thumbnail } = productData.data;
   const totalPeopleCount = adultCount + childCount + babyCount;
   const totalCampZone = selectedZones.map(zoneItem => zoneItem.campingZoneId);
   const zoneList = selectedZones.map(zoneItem => zoneItem.zoneName);
@@ -42,6 +42,7 @@ const PayFlow = () => {
     (accumulator, zoneItem) => accumulator + Number(zoneItem.maxPeople),
     0
   );
+
   const payPrice = Number(totalPrice).toLocaleString();
 
   let readyPaprams = {
@@ -59,23 +60,20 @@ const PayFlow = () => {
   };
 
   useEffect(() => {
-    const response = async () => {
-      await axios
-        .post('/v1/payment/ready', readyPaprams, {
-          headers: {
-            Authorization: 'KakaoAK edd72ff4d348df65098c647aaaddf5d3',
-            'Content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-          },
-        })
-        .then(res => {
-          const {
-            data: { next_redirect_pc_url },
-          } = res;
-          localStorage.setItem('tid', res.data.tid);
-          setNextRedirectPcUrl(next_redirect_pc_url);
-        });
-    };
-    response();
+    axios
+      .post('/v1/payment/ready', readyPaprams, {
+        headers: {
+          Authorization: 'KakaoAK edd72ff4d348df65098c647aaaddf5d3',
+          'Content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+        },
+      })
+      .then(res => {
+        const {
+          data: { next_redirect_pc_url },
+        } = res;
+        localStorage.setItem('tid', res.data.tid);
+        setNextRedirectPcUrl(next_redirect_pc_url);
+      });
   }, []);
 
   return (

@@ -114,6 +114,7 @@ const RemoteCon = ({ calendarRef, viewMapRef }) => {
     } else {
       dispatch(setTotalPrice(withOutFeePrice));
       navigate('/payment');
+      window.scrollTo(0, 0);
     }
   };
 

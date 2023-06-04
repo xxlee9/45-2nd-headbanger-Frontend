@@ -43,6 +43,7 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
   <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white">
   <img src="https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=Trello&logoColor=white">
   <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white">
+  <img src="https://img.shields.io/badge/figma-FF61F6?style=for-the-badge&logo=figma&logoColor=white">
 </div>
 
 --------------
@@ -75,25 +76,17 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 [FE]
 
-- 소셜로그인 api 로 구현
-- 
+#### <사용자의 편의성 증대를 위한 카카오 소셜 로그인 API 활용>
+
+- 소셜 로그인으로 사용자가 기존에 가입한 소셜 미디어 계정을 활용하여 웹사이트에 쉽게 접근할 수 있게 함
+- 가장 대중적인 카카오 소셜 로그인 REST API를 사용하여 사용자의 편의성을 높힘
+- 로그인 과정에서 발생할 수 있는 대기 시간을 적극적으로 활용하기 위해 로딩 마이크로 애니메이션 페이지 추가
 
 [BE]
 
 - OAuth 2.0의 플로우를 사용한 Kakao RestAPI 방식의 소셜 로그인
 
 ---------------
-
-#### 로그인 페이지
-
-[FE]
-
-- 소셜로그인 api 로 구현
-- 
-
-[BE]
-
-- OAuth 2.0의 플로우를 사용한 Kakao RestAPI 방식의 소셜 로그인
 
 #### 메인페이지 
 

@@ -47,7 +47,6 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 </div>
 
 --------------
-
 ## 팀이름 : HeadBanger
 
 - 개발자로서 능동적인 소통을 중요시하는 팀 !
@@ -70,7 +69,56 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
             남녀노소할 것 없이 모두가 즐기는 서비스
             주 고객층(결제를 진행하는 사람): 20중후반부터
             
+
 --------------
+
+### 프로젝트를 위해 사용 TOOL & TECH
+
+
+[ALL]
+
+#### GOOGLE SHEET
+
+![구글시트지](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/d4cd5315-b85e-46b1-877f-2eec9d5a46e0)
+
+- 기능정의서로 활용
+- 프&백 데이터의 형식이 필요하거나, 어떠한 데이터가 필요할때 작성하여 소통
+- 서로 맡은 기능적인 부분을 명확히 명시하여 불필요한 혼동 제거
+- Category의 순번, 이름등을 적어서 명시
+
+#### FIGMA
+
+<img width="1280" alt="스크린샷 2023-06-05 오후 1 09 43" src="https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/69bf9ab1-d143-4262-8921-728add8376be">
+
+- figma툴을 사용하여 전체적인 layout 논의
+- 프론트만이 아닌 백엔드도 참가하여 기능적인 부분 논의
+- 프&백 서로 소통에서 중요한 부분에 대한 포인트를 표시하고 확인
+
+#### TRELLO
+<img width="1280" alt="스크린샷 2023-06-05 오후 1 05 28" src="https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/49d34383-24de-49d7-9e10-71456f87fafe">
+
+- trello를 사용하여 티켓을 발급하고 난이도에 맞는 티켓을 분배
+- 매일 오전 10시 stand-up-meeting을 통해 진척도 체크, 블락컨 요소 공유
+- 진척도 체크를 위해 back-log / sprint / in-progress / in-review / done 으로 나눠 미팅떄마다 퍼센트로 체크
+- 2주 프로젝트에서 스프린트 미팅을 2번 실행하여 각 스프린트 기간동안 목표%를 설정하고 진행, 스프린트 기간이 지나면 부족한 부분 보완하는 회의 진행
+
+[FE]
+
+#### 라이브러리 사용
+
+- 각 flow 별로 구현해야할 기능에 맞는 라이브러리 적용하여 사용
+
+[BE]
+
+#### UNIT TEST 구현
+
+- 각 flow 대로 맡은 기능 UNIT TEST 작성 후 업로드
+
+#### typeORM 기능 중 연결 기능만 사용
+
+- QUARY 문을 이해하고자 직접적으로 QUERY문 작성
+
+------------------
 
 ### 로그인 페이지
 

@@ -187,6 +187,19 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 ---------------
 
+### Nav바
+
+[FE]
+
+전체적인 데이터들을 리덕스를 활용해 props를 덜 사용하고 추후 리스트페이지에서 쉽게 데이터 접근이 가능토록 했음
+선택된 데이터들로 쿼리문을 활용해 상품리스트로 연결되며 리덕스에 저장된 데이터를 활용해 메인페이지에서 선택된 내용이 리스트에서도 똑같이 보이도록함
+
+![검색Nav바_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127650045/2393b569-6e3e-4410-a49f-f02b87175604)
+
+
+---------------
+
+
 ### 상품 상세 페이지
 
 [FE]
@@ -243,11 +256,26 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
   5) 리뷰의 길이를 측정해 페이지네이션을 하는 방식을 채택했는데 리뷰의 갯수가 늘어날경우 올바른 방법이 아니라 백엔드로부터 리뷰카운트를 받는 방식으로 리펙토링 해야함
  
 
-
 [BE]
 
 - 레이더 차트 구현을 위한 Query를 사용한 평균값 계산
 - 프론트의 하드 코딩이 아닌, DB에서 보내주는 조감도와, 조감도의 각 좌표를 이용한, 예약 가능/불가능 Zone 표기
+
+
+![오토스크롤_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127650045/a8f7fec4-ea05-45f7-8646-4d46bbea745d)
+
+
+![캠핑장정보_더보기_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127650045/f9ad2843-ee38-444e-9fc3-74e1112bfae2)
+
+
+![날짜별_가능한_존표시_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127650045/17765bad-04be-45f3-8ca2-b53c8d01d140)
+
+
+![존별_사용가능인원_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127650045/d6918429-3b23-4949-83df-1b81fe0440d1)
+
+
+![로그인안되있으면_로그인으로_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127650045/eafe86bd-2808-479d-875a-227264da7c2d)
+
 
 --------------
 

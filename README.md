@@ -194,7 +194,6 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 전체적인 데이터들을 리덕스를 활용해 props를 덜 사용하고 추후 리스트페이지에서 쉽게 데이터 접근이 가능토록 했음
 선택된 데이터들로 쿼리문을 활용해 상품리스트로 연결되며 리덕스에 저장된 데이터를 활용해 메인페이지에서 선택된 내용이 리스트에서도 똑같이 보이도록함
 
-![검색Nav바_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127650045/2393b569-6e3e-4410-a49f-f02b87175604)
 
 
 ---------------
@@ -202,16 +201,6 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 ### 상품 상세 페이지
 
-![캠핑장정보_더보기_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127650045/f9ad2843-ee38-444e-9fc3-74e1112bfae2)
-
-
-![날짜별_가능한_존표시_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127650045/17765bad-04be-45f3-8ca2-b53c8d01d140)
-
-
-![존별_사용가능인원_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127650045/d6918429-3b23-4949-83df-1b81fe0440d1)
-
-
-![로그인안되있으면_로그인으로_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127650045/eafe86bd-2808-479d-875a-227264da7c2d)
 
 
 ### [FE]
@@ -281,7 +270,6 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 #### 로그아웃
 
-![logOut](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/6ef0814d-93b9-4cd2-8e66-5733ab9b4412)
 
 - 로그아웃 버튼을 누르면 한 번 더 확인을 요청하는 모달창이 띄워지고 이후 로그아웃 진행되는 기능 구현
 
@@ -297,8 +285,6 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 ### [FE]
 
 #### 결제페이지
-![kakaoPay_1](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/45fea1f7-8408-47ea-9b62-1b0aa32280b4)
-![KakaoPay_2](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/eb75c12e-5dc8-427c-84dd-8b686d1b118b)
 
 
 - 카카오페이를 통한 간편결제
@@ -318,7 +304,6 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 ### [FE]
 
-![오토스크롤_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127650045/a8f7fec4-ea05-45f7-8646-4d46bbea745d)
 
 #### EmojiDescription 
 
@@ -344,8 +329,6 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 
 #### 리뷰작성
-
-![review](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/6cb5afc4-7d18-4201-ac03-7d4cf2a6eef5)
 
 - 고객이 이용한 내역에 대해 리뷰를 남기고 공유할 수 있는 기능을 제공
 - 리뷰 작성 버튼을 누르면 모달창을 띄워 페이지 이동 없이 리뷰를 작성할 수 있도록 구현

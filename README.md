@@ -80,6 +80,9 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 #### GOOGLE SHEET
 
+![제목 없는 디자인](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/e9210721-58d2-4db1-9f1e-ba818d14e5bc)
+
+
 - 기능정의서로 활용
 - 프&백 데이터의 형식이 필요하거나, 어떠한 데이터가 필요할때 작성하여 소통
 - 서로 맡은 기능적인 부분을 명확히 명시하여 불필요한 혼동 제거
@@ -137,6 +140,11 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 ### 메인페이지 
 
 ### [FE]
+
+![캐러셀](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/5c69ca04-5b03-4690-94ac-a5d8fdf9774f)
+![테마별캠핑](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/3a20119b-a3c0-45cb-8564-c4f9ff136316)
+
+
 
 - 캐러셀
 - 카테고리별 캠프 노출
@@ -273,6 +281,8 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 #### 로그아웃
 
+![logOut](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/f24b66c5-bece-4c98-b5fc-32474493ffcb)
+
 
 - 로그아웃 버튼을 누르면 한 번 더 확인을 요청하는 모달창이 띄워지고 이후 로그아웃 진행되는 기능 구현
 
@@ -286,6 +296,10 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 ### 결제 페이지 
 
 ### [FE]
+
+
+![kakaoPay_1](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/98c37d40-a7d2-4f83-8e0a-86e322eefa0d)
+![KakaoPay_2](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/28203e29-3b26-4814-b0e1-7a2b9031d450)
 
 #### 결제페이지
 

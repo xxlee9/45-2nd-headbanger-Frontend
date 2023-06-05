@@ -75,6 +75,7 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 ### 프로젝트를 위해 사용 TOOL & TECH
 
 
+
 [ALL]
 
 #### GOOGLE SHEET
@@ -331,6 +332,11 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 
 #### 리뷰작성
+
+<p align="center">
+<img src= "![review](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/fb1efdb6-5a05-4a39-abd5-f34c81f6ddc3)" >
+</p>
+
 
 - 고객이 이용한 내역에 대해 리뷰를 남기고 공유할 수 있는 기능을 제공
 - 리뷰 작성 버튼을 누르면 모달창을 띄워 페이지 이동 없이 리뷰를 작성할 수 있도록 구현

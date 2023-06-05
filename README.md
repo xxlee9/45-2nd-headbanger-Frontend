@@ -161,6 +161,8 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 #### 로그아웃
 
+![logOut](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/6ef0814d-93b9-4cd2-8e66-5733ab9b4412)
+
 - 로그아웃 버튼을 누르면 한 번 더 확인을 요청하는 모달창이 띄워지고 이후 로그아웃 진행되는 기능 구현
 
 [BE]
@@ -175,6 +177,9 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 [FE]
 
 #### 결제페이지
+![kakaoPay_1](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/45fea1f7-8408-47ea-9b62-1b0aa32280b4)
+![KakaoPay_2](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/eb75c12e-5dc8-427c-84dd-8b686d1b118b)
+
 
 - 카카오페이를 통한 간편결제
 - 카카오로그인/ 카카오맵 / 카카오결제로 이어지도록 하는 Flow 제공
@@ -196,6 +201,8 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 
 #### 리뷰작성
+
+![review](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/6cb5afc4-7d18-4201-ac03-7d4cf2a6eef5)
 
 - 고객이 이용한 내역에 대해 리뷰를 남기고 공유할 수 있는 기능을 제공
 - 리뷰 작성 버튼을 누르면 모달창을 띄워 페이지 이동 없이 리뷰를 작성할 수 있도록 구현

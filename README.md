@@ -166,7 +166,6 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 ### [FE]
 
 
-
 #### <사용자 중심의 상품리스트 페이지 설계>
 
 #### 무한 스크롤
@@ -192,10 +191,12 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 - 검색 기능을 제공하여 사용자가 원하는 캠프를 빠르게 찾을 수 있도록 구현 </br>
 - 사용자가 검색창에 입력하면 해당 검색어를 포함하는 캠프의 리스트를 필터링하고, 선택된 검색어는 URL의 </br>
   검색 파라미터로 추가되어 상품 리스트 페이지가 적절하게 업데이트 되도록 구현</br>
-  
-  ![search camp](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127685269/cba88689-2dfd-447d-ba1c-689ce2e91bc9)
-  
-  
+
+
+![search camp](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127685269/cba88689-2dfd-447d-ba1c-689ce2e91bc9)
+
+
+
 
 #### 정렬 기능
 - 사용자의 선택에 따라 인기도 또는 가격순에 따라 상품을 정렬하는 기능을 제공하여, </br>

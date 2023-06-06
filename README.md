@@ -163,24 +163,19 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 ### 리스트 페이지
 
 
-
 ### [FE]
 
 
 
 #### <사용자 중심의 상품리스트 페이지 설계>
 
-
-
-
-
 #### 무한 스크롤
 - 사용자 인터페이스의 부드러움을 최대화하기 위해 무한 스크롤 기능 구현 </br>
-- 페이지의 끝에 도달하면 자동으로 상품이 로드되어 추가적인 클릭이나 페이지 로딩 시간 없이 </br>
-  원활하게 컨텐츠 탐색할 수 있어 사용자 경험을 향상 시킴 </br>
+- offset과 limit 값을 API에 전달하여 특정 구간에 도달하면 자동으로 상품이 로드되어 </br>
+  추가적인 클릭이나 페이지 로딩 시간 없이 원활하게 컨텐츠를 탐색할 수 있어 사용자 경험을 향상 시킴 </br>
 
 
-![제목 없음 (1280 × 600px) (1)-min-min](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127685269/9c37d7ff-cd6c-4e54-9988-23aa762f329a)
+![camping](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127685269/46bcc029-a193-4dd7-a397-2f7f6e0b5bec)
 
 
 #### 체크박스 필터
@@ -190,10 +185,17 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
   동적으로 로컬 스토리지와 URL의 검색 파라미터 업데이트 </br>
 
 
+![제목 없음 (1280 × 600px) (1)-min-min](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127685269/9c37d7ff-cd6c-4e54-9988-23aa762f329a)
+
+
 #### 캠프 이름 검색
 - 검색 기능을 제공하여 사용자가 원하는 캠프를 빠르게 찾을 수 있도록 구현 </br>
 - 사용자가 검색창에 입력하면 해당 검색어를 포함하는 캠프의 리스트를 필터링하고, 선택된 검색어는 URL의 </br>
   검색 파라미터로 추가되어 상품 리스트 페이지가 적절하게 업데이트 되도록 구현</br>
+  
+  ![search camp](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127685269/cba88689-2dfd-447d-ba1c-689ce2e91bc9)
+  
+  
 
 #### 정렬 기능
 - 사용자의 선택에 따라 인기도 또는 가격순에 따라 상품을 정렬하는 기능을 제공하여, </br>

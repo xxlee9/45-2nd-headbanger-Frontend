@@ -128,6 +128,11 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 #### <사용자의 편의성 증대를 위한 카카오 소셜 로그인 API 활용>
 
+![](https://velog.velcdn.com/images/cinematicmomentz/post/edbc28c1-f762-451f-b041-c575c75c2ce5/image.png)
+
+![](https://velog.velcdn.com/images/cinematicmomentz/post/8cb8dd21-4a96-4e5a-b409-5e809c9e8707/image.png)
+
+
 - 가장 대중적인 카카오 소셜 로그인 REST API를 사용하여 사용자의 편의성을 높힘
 - 로그인 과정에서 발생할 수 있는 대기 시간을 적극적으로 활용하기 위해 로딩 마이크로 애니메이션 페이지 추가
 

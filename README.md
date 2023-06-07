@@ -219,6 +219,9 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 ### [FE]
 
+![검색Nav바_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/b96151e6-619c-4c5f-b2f7-3c4b16df061c)
+
+
 전체적인 데이터들을 리덕스를 활용해 props를 덜 사용하고 추후 리스트페이지에서 쉽게 데이터 접근이 가능토록 했음
 선택된 데이터들로 쿼리문을 활용해 상품리스트로 연결되며 리덕스에 저장된 데이터를 활용해 메인페이지에서 선택된 내용이 리스트에서도 똑같이 보이도록함
 
@@ -230,6 +233,9 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 ### 상품 상세 페이지
 
 
+![캠핑장정보_더보기_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/6a698f3b-b24c-40e5-b962-172de3399cf3)
+![존별_사용가능인원_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/1d9aa551-e3dd-47b8-b0e7-ce246c983e6a)
+![로그인안되있으면_로그인으로_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/f0916f51-2844-437c-8aa1-2e5a1607d0a0)
 
 ### [FE]
 
@@ -252,6 +258,10 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 - 1의 로직을 구현하기 위해 includes를 활용하였으나 아무것도 없는 빈배열일때 문제가 생기는 현상 발견함 추후 로직을 바꿔야함
 
 #### Calendar
+
+
+![날짜별_가능한_존표시_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/1b78cb9a-16ce-4982-9a46-658f2fc1da38)
+
 
 - Nav바와 상품상세에서 활용하는 날짜의 값을 일치하기 위해 redux를 활용 
 - 시작날짜를 선택한후 끝날짜를 선택하면 그 사이의 값은 모두 선택되기위해 datepicker라이브러리의 selectranges메서드 활용
@@ -337,6 +347,8 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 #### 리뷰 페이지
 
 ### [FE]
+
+![오토스크롤_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/6273ff83-d785-4558-b429-08ecc7689545)
 
 
 #### EmojiDescription 

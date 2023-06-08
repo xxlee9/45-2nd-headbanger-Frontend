@@ -303,6 +303,9 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 - 추후 안쪽 점수로 만들어진 오각형에 애니메이션 효과 구현 예정
 
 
+![리뷰페이지](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/127650045/c5b06727-e3ed-4aa6-8b62-7bf0e7766b26)
+
+
 #### review
 
 - 레이더 차트가 밑에서도 활용시 부자연스러울거같아 5점일 경우 너비가 98%인 div바 배경을 만들고 각 점수에 맞게 그 바를 채우는 방식으로 점수 노출 그래프 생성

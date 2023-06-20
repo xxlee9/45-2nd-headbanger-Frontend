@@ -124,7 +124,7 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 ### 로그인 페이지
 
-### [FE]
+### [FE] - 이수빈 담당
 
 #### <사용자의 편의성 증대를 위한 카카오 소셜 로그인 API 활용>
 
@@ -144,7 +144,7 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 ### 메인페이지 
 
-### [FE]
+### [FE] - 이소진 담당
 
 ![캐러셀](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/5c69ca04-5b03-4690-94ac-a5d8fdf9774f)
 ![테마별캠핑](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/3a20119b-a3c0-45cb-8564-c4f9ff136316)
@@ -168,7 +168,7 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 ### 리스트 페이지
 
 
-### [FE]
+### [FE] - 이수빈 담당
 
 
 #### <사용자 중심의 상품리스트 페이지 설계>
@@ -217,7 +217,7 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 ### Nav바
 
-### [FE]
+### [FE] - 김준섭 담당
 
 ![검색Nav바_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/b96151e6-619c-4c5f-b2f7-3c4b16df061c)
 
@@ -230,7 +230,7 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 ---------------
 
 
-### 상품 상세 페이지
+### 상품 상세 페이지 - 김준섭 담당
 
 
 ![캠핑장정보_더보기_AdobeExpress](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/6a698f3b-b24c-40e5-b962-172de3399cf3)
@@ -331,7 +331,7 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 ### 마이 페이지
 
-### [FE]
+### [FE] - 김태원 담당
 
 #### 예약내역 메뉴탭
 
@@ -353,7 +353,7 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 ### 결제 페이지 
 
-### [FE]
+### [FE] - 김태원 담당
 
 
 ![kakaoPay_1](https://github.com/wecode-bootcamp-korea/45-2nd-headbanger-Frontend/assets/125236449/98c37d40-a7d2-4f83-8e0a-86e322eefa0d)
@@ -377,7 +377,7 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 #### 리뷰 페이지
 
-### [FE]
+### [FE] - 김태원 담당
 
  
 #### 리뷰작성

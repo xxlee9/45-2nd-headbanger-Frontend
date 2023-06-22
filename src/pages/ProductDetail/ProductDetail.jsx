@@ -54,24 +54,28 @@ const ProductDetail = () => {
     formattedEndDate = `${endYear}-${formattedEndMonth}-${formattedEndDay}`;
   }
 
-  useFetchData(
-    `http://10.58.52.227:3000/products/camps?campId=${campId}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`,
-    dispatch,
-    setZoneData
-  );
+  // useFetchData(
+  //   `http://10.58.52.227:3000/products/camps?campId=${campId}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`,
+  //   dispatch,
+  //   setZoneData
+  // );
 
-  useFetchData(
-    `http://10.58.52.227:3000/products/camps/${campId}`,
-    dispatch,
-    setProductData
-  );
+  // useFetchData(
+  //   `http://10.58.52.227:3000/products/camps/${campId}`,
+  //   dispatch,
+  //   setProductData
+  // );
 
-  useFetchData(
-    `http://10.58.52.227:3000/reviews/${campId}`,
-    dispatch,
-    setReviewData
-  );
+  // useFetchData(
+  //   `http://10.58.52.227:3000/reviews/${campId}`,
+  //   dispatch,
+  //   setReviewData
+  // );
+  useFetchData(`/data/backCampingZone.json`, dispatch, setZoneData);
 
+  useFetchData(`/data/camping1data.json`, dispatch, setProductData);
+
+  useFetchData(`/data/camping1review.json`, dispatch, setReviewData);
   if (
     !reviewData ||
     !reviewData.total_grade ||
@@ -129,9 +133,7 @@ const ProductDetail = () => {
       <Section ref={reviewRef}>
         <ProductReview />
       </Section>
-      <Section ref={mapRef}>
-        <KakaoMap />
-      </Section>
+      <Section ref={mapRef}>{/* <KakaoMap /> */}</Section>
     </Container>
   );
 };

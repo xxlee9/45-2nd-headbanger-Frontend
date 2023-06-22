@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { flexSort } from '../../../../../styles/mixin';
 import { Link } from 'react-router-dom';
+import { PRODUCT_LIST_API } from '../../../../../config';
 
 const BookingList = () => {
   const [bookingList, setBookingList] = useState([]);
@@ -14,7 +15,7 @@ const BookingList = () => {
 
   useEffect(() => {
     axios
-      .get('http://10.58.52.227:3000/users/reservation-lists', {
+      .get(`${PRODUCT_LIST_API}/users/reservation-lists`, {
         headers: {
           authorization: TOKEN,
         },

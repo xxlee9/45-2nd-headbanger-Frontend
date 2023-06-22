@@ -5,6 +5,7 @@ import NiceModal, { useModal } from '@ebay/nice-modal-react';
 import ReviewModal from './Review/ReviewModal';
 import styled from 'styled-components';
 import { flexSort } from '../../../../../styles/mixin';
+import { PRODUCT_LIST_API } from '../../../../../config';
 
 const BookingLogcopy = () => {
   const [logList, setLogList] = useState([]);
@@ -21,7 +22,7 @@ const BookingLogcopy = () => {
 
   useEffect(() => {
     axios
-      .get('http://10.58.52.227:3000/users/reservation-lists', {
+      .get(`${PRODUCT_LIST_API}/users/reservation-lists`, {
         headers: {
           authorization: TOKEN,
         },

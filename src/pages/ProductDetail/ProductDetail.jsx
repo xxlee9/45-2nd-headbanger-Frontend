@@ -17,6 +17,8 @@ import Facilities from './components/Facilities';
 import CalendarProduct from './components/CalendarProduct';
 import ProductReview from './components/ProductReview';
 import KakaoMap from './components/KakaoMap';
+import { PRODUCT_LIST_API } from '../../config';
+
 const ProductDetail = () => {
   const overviewRef = useRef();
   const featuresRef = useRef();
@@ -54,28 +56,28 @@ const ProductDetail = () => {
     formattedEndDate = `${endYear}-${formattedEndMonth}-${formattedEndDay}`;
   }
 
-  // useFetchData(
-  //   `http://10.58.52.227:3000/products/camps?campId=${campId}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`,
-  //   dispatch,
-  //   setZoneData
-  // );
+  useFetchData(
+    `${PRODUCT_LIST_API}/products/camps?campId=${campId}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`,
+    dispatch,
+    setZoneData
+  );
 
-  // useFetchData(
-  //   `http://10.58.52.227:3000/products/camps/${campId}`,
-  //   dispatch,
-  //   setProductData
-  // );
+  useFetchData(
+    `${PRODUCT_LIST_API}/products/camps/${campId}`,
+    dispatch,
+    setProductData
+  );
 
-  // useFetchData(
-  //   `http://10.58.52.227:3000/reviews/${campId}`,
-  //   dispatch,
-  //   setReviewData
-  // );
-  useFetchData(`/data/backCampingZone.json`, dispatch, setZoneData);
+  useFetchData(
+    `${PRODUCT_LIST_API}/reviews/${campId}`,
+    dispatch,
+    setReviewData
+  );
+  // useFetchData(`/data/backCampingZone.json`, dispatch, setZoneData);
 
-  useFetchData(`/data/camping1data.json`, dispatch, setProductData);
+  // useFetchData(`/data/camping1data.json`, dispatch, setProductData);
 
-  useFetchData(`/data/camping1review.json`, dispatch, setReviewData);
+  // useFetchData(`/data/camping1review.json`, dispatch, setReviewData);
   if (
     !reviewData ||
     !reviewData.total_grade ||

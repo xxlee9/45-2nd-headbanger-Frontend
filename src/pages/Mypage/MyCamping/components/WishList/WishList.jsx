@@ -4,14 +4,14 @@ import { Mixin } from 'react';
 import { flexSort } from '../../../../../styles/mixin';
 import styled from 'styled-components';
 import HeartIcon from '../../../../../assets/images/components/Common/HeartIcon';
-
+import { PRODUCT_LIST_API } from '../../../../../config';
 const WishList = () => {
   const [wishList, setWishList] = useState([]);
   const TOKEN = localStorage.getItem('token');
 
   useEffect(() => {
     axios
-      .get('http://10.58.52.227:3000/wishs', {
+      .get(`${PRODUCT_LIST_API}/wishs`, {
         headers: {
           authorization: TOKEN,
         },

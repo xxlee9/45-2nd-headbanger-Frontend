@@ -11,7 +11,9 @@ export default NiceModal.create(({ OrderSuccessModal }) => {
   const closeModal = () => {
     modal.remove(OrderSuccessModal);
     document.body.style.overflow = 'unset';
-    window.location.replace('http://localhost:3000/mypage');
+    window.location.replace(
+      'http://cvg-headbanger.s3-website.ap-northeast-2.amazonaws.com/mypage'
+    );
   };
   return (
     <Container>

@@ -5,15 +5,14 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { boxSize, flexSort, fontMix } from '../../../styles/mixin';
+import { PRODUCT_LIST_API } from '../../../config';
 
 const LikeList = () => {
   const [product, setProduct] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(
-      'http://10.58.52.227:3000/products?regionId=6&orderBy=wishAsc&limit=10'
-    )
+    fetch(`${PRODUCT_LIST_API}/products?regionId=6&orderBy=wishAsc&limit=10`)
       .then(response => response.json())
       .then(response => {
         setProduct(response.result);

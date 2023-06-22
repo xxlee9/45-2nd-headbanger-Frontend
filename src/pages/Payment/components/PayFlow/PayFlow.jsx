@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { flexSort } from '../../../../styles/mixin';
+import { PRODUCT_LIST_API } from '../../../../config';
 
 const PayFlow = () => {
   const [nextRedirectPcUrl, setNextRedirectPcUrl] = useState('');
@@ -60,10 +61,12 @@ const PayFlow = () => {
     quantity: totalCampZone.length,
     total_amount: totalPrice,
     tax_free_amount: 0,
-    approval_url: `http://localhost:3000/paying?totalMembers=${totalPeopleCount}&campingZoneId=${totalCampZone}&startDate=${formattedStartDate}&endDate=${formattedEndDate}&totalPrice=${totalPrice}
+    approval_url: `http://cvg-headbanger.s3-website.ap-northeast-2.amazonaws.com/paying?totalMembers=${totalPeopleCount}&campingZoneId=${totalCampZone}&startDate=${formattedStartDate}&endDate=${formattedEndDate}&totalPrice=${totalPrice}
     `,
-    fail_url: 'http://localhost:3000/payfail',
-    cancel_url: 'http://localhost:3000/paycancel',
+    fail_url:
+      'http://cvg-headbanger.s3-website.ap-northeast-2.amazonaws.com/payfail',
+    cancel_url:
+      'http://cvg-headbanger.s3-website.ap-northeast-2.amazonaws.com/paycancel',
   };
 
   useEffect(() => {

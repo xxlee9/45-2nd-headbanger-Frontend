@@ -54,10 +54,12 @@ const Kakao = () => {
     quantity: totalCampZone.length,
     total_amount: totalPrice,
     tax_free_amount: 0,
-    approval_url: `http://localhost:3000/paying?tid=${orderInfo.tid}&totalMembers=${orderInfo.totalMembers}&campingZoneId=${orderInfo.campingZoneId}&startDate=${orderInfo.startDate}&endDate=${orderInfo.endDate}&totalPrice=${orderInfo.totalPrice}
+    approval_url: `http://cvg-headbanger.s3-website.ap-northeast-2.amazonaws.com/paying?tid=${orderInfo.tid}&totalMembers=${orderInfo.totalMembers}&campingZoneId=${orderInfo.campingZoneId}&startDate=${orderInfo.startDate}&endDate=${orderInfo.endDate}&totalPrice=${orderInfo.totalPrice}
     `,
-    fail_url: 'http://localhost:3000/payfail',
-    cancel_url: 'http://localhost:3000/paycancel',
+    fail_url:
+      'http://cvg-headbanger.s3-website.ap-northeast-2.amazonaws.com/payfail',
+    cancel_url:
+      'http://cvg-headbanger.s3-website.ap-northeast-2.amazonaws.com/paycancel',
   };
 
   console.log('카카오로', readyPaprams);

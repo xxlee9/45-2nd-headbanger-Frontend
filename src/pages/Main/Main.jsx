@@ -7,6 +7,7 @@ import SearchBar from '../../components/Nav/SearchBar';
 import LikeList from './components/LikeList';
 import { flexSort } from '../../styles/mixin';
 import ResponsiveMedia from './components/ResponsiveMedia';
+import { PRODUCT_LIST_API } from '../../config';
 
 const Main = () => {
   const [regionCampingData, setRegionCampingData] = useState([]);
@@ -14,7 +15,7 @@ const Main = () => {
   const [amenitiesData, setAmenitiesData] = useState([]);
 
   useEffect(() => {
-    fetch('http://10.58.52.227:3000/products/categories', {
+    fetch(`${PRODUCT_LIST_API}/products/categories`, {
       method: 'GET',
     })
       .then(res => res.json())

@@ -1,1 +1,2 @@
-export const REDIRECT_URI = 'http://localhost:3000/auth';
+export const REDIRECT_URI =
+  'http://cvg-headbanger.s3-website.ap-northeast-2.amazonaws.com/auth';

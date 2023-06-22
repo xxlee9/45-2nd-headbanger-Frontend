@@ -26,7 +26,7 @@ const Navbar = () => {
   useEffect(() => {
     TOKEN &&
       axios
-        .get('http://10.58.52.227:3000/users/loginedUser', {
+        .get('http://13.209.8.13:3001/users/loginedUser', {
           headers: {
             authorization: TOKEN,
           },

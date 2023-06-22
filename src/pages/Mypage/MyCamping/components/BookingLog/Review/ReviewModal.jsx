@@ -42,7 +42,7 @@ export default NiceModal.create(({ id }) => {
 
   const addReview = () => {
     axios
-      .post('http://10.58.52.227:3000/reviews', totalReview, {
+      .post('http://13.209.8.13:3001/reviews', totalReview, {
         headers: {
           'Content-Type': 'application/json',
           authorization: TOKEN,

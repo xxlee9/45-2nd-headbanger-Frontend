@@ -39,7 +39,7 @@ const Paying = () => {
 
   useEffect(() => {
     axios
-      .post('http://10.58.52.227:3000/payments', orderData, {
+      .post('http://13.209.8.13:3001/payments', orderData, {
         headers: {
           'Content-Type': 'application/json',
           authorization: TOKEN,

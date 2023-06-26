@@ -15,12 +15,6 @@ const KakaoMap = props => {
 
 const Container = styled.div`
   width: 100%;
-  @media screen and (max-width: 768px) {
-    z-index: 9999;
-    position: fixed;
-    left: 30%;
-    bottom: 10%;
-  }
 `;
 
 const MapImage = styled.div`
@@ -45,10 +39,6 @@ const MapButton = styled.button`
   outline: none;
   border: none;
   color: ${props => props.theme.mainBlack};
-  @media screen and (max-width: 768px) {
-    color: white;
-    background-color: black;
-  }
 `;
 
 export default KakaoMap;

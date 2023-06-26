@@ -47,7 +47,7 @@ const Auth = () => {
     fetch(`https://kauth.kakao.com/oauth/token`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `grant_type=authorization_code&client_id=4eec4b80edfa89085db55154e371c57f&redirect_uri=${REDIRECT_URI}&code=${KAKAO_CODE}`,
+      body: `grant_type=authorization_code&client_id=${process.env.REACT_APP_REST_API_KEY}&redirect_uri=${REDIRECT_URI}&code=${KAKAO_CODE}`,
     })
       .then(res => res.json())
       .then(data => {

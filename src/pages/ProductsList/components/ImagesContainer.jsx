@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import HeartIcon from '../../ProductsList/components/HeartIcon';
 import LoadingMotion from '../../../components/Common/LoadingMotion';
 import { boxSize, fontMix } from '../../../styles/mixin';
 import { PRODUCT_LIST_API } from '../../../config';
@@ -61,9 +60,6 @@ const ImagesContainer = ({ id, searchParams, campId }) => {
               src={content.thumbnail}
               onClick={() => navigate(`/productdetail/${content.id}`)}
             />
-            <HeartIconWrapper>
-              <HeartIcon campId={content.campId} />
-            </HeartIconWrapper>
             <TextContainer>
               <CampName>{content.campsite_name}</CampName>
               <CampRegion>{content.region_name}</CampRegion>
@@ -83,17 +79,6 @@ const ImageContainers = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 40px;
-  @media screen and (max-width: 680px) {
-    flex-direction: column;
-  }
-`;
-
-const HeartIconWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  position: absolute;
-  top: 12px;
-  right: 12px;
 `;
 
 const FirstImage = styled.div`

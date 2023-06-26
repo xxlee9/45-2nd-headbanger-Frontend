@@ -139,14 +139,14 @@ const SearchBarBackground = styled.div`
   height: 60px;
   border: none;
   outline: none;
-  background-color: #68a67d;
+  background-color: #8aad88;
 `;
 const SearchBarWrap = styled.div`
   ${flexSort('center', 'center')}
   position: relative;
   width: 1100px;
   height: 46px;
-  border: 1px solid #68a67d;
+  border: 1px solid #8aad88;
 `;
 const LocationButton = styled.button`
   position: relative;
@@ -155,7 +155,7 @@ const LocationButton = styled.button`
   padding: 0 8px;
   border: none;
   outline: none;
-  ${fontMix(14, 'black')}
+  ${fontMix(12, 'black')}
   cursor: pointer;
   background-color: #fff;
   border-radius: 12px;
@@ -167,7 +167,7 @@ const SearchButton = styled.button`
   outline: none;
   background-color: ${props => props.theme.mainBlack};
   border-radius: 12px;
-  font-size: ${fontMix(14, 'white')};
+  ${fontMix(12, 'white')};
   padding: 0 16px;
   cursor: pointer;
   margin-left: 6px;
@@ -214,7 +214,7 @@ const DatePickerWrapper = styled.button`
   }
   input {
     width: 100%;
-    height: 44px;
+    height: 42px;
     border: none;
     text-align: center;
     &:focus {

@@ -34,13 +34,11 @@ const ProductsList = () => {
     };
 
     fetchProducts();
-
-    window.scrollTo(0, 0);
   }, [campId, searchParams]);
 
-  // useEffect(() => {
-  //   setSearchParams(new URLSearchParams());
-  // }, []);
+  useEffect(() => {
+    setSearchParams(new URLSearchParams());
+  }, []);
 
   return (
     <Wrap>
@@ -85,10 +83,6 @@ const ContainerAll = styled.div`
   margin: 0 auto;
   position: relative;
   top: 80px;
-  @media screen and (max-width: 768px) {
-    align-items: center;
-    flex-direction: column;
-  }
 `;
 const FeedModal = styled.div`
   position: fixed;
@@ -107,12 +101,6 @@ const LeftSideContainer = styled.div`
   width: 30%;
   position: sticky;
   top: 20px;
-  @media screen and (max-width: 768px) {
-    ${flexSort('center', 'center')}
-    flex-direction: row-reverse;
-    position: relative;
-    width: 100%;
-  }
 `;
 
 const RightSideContainer = styled.div`

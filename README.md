@@ -6,10 +6,30 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 -------------
 
-## 기술스택
+## 💡 About CVG(Camping Very Good!)
+
+1. 개발기간: 2023.05.01 ~ 2023.05.12 (총 2주)
+2. 프로젝트 목적과 소개
+    - 영화 플랫폼을 모델링한 일상에서 벗어나 자연 뿐만아니라 도심 속에서도 캠핑을 즐길 수 있는 기회를 제공하는 캠핑예약 웹사이트 <br/>
+    - 사용자들이 다양한 캠핑장 정보를 찾고 쉽게 예약할 수 있으며 자연의 아름다움을 느낄 수 있는 특별한 경험을 제공하는 플랫폼 개발 <br/>
+4. End User
+    - 일상에서 벗어나 가족들과 함께 시간을 보내고 싶은 직장인 <br/>
+    - 추억을 쌓으러 친구들과 함께 여행을 떠나는 대학생 <br/>
+    - 여유롭게 자연을 즐기고 싶은 장년층 <br/>
+    - 누구나 즐길 수 있는 서비스를 원하는 모든 연령층 <br/>
+
+<br>
+
+## 🪡 Tech Stack
+
+<div display=flex >
 
 ### FrontEnd
 
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
+<img src="https://img.shields.io/badge/html-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
 
 ### BackEnd
 <div>
@@ -34,36 +54,20 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 
 --------------
 
-## CVG : Camping Very Good!
-- 프로젝트 소개
-    - 일상에서 벗어나 자연 뿐만아니라 도심 속에서도 캠핑을 즐길 수 있는 기회를 제공하는 캠핑예약 웹사이트 <br/>
-    - 사용자들이 다양한 캠핑장 정보를 찾고 쉽게 예약할 수 있으며 자연의 아름다움을 느낄 수 있는 특별한 경험을 제공하는 플랫폼 개발 <br/>
 
-- End User
-    - 일상에서 벗어나 가족들과 함께 시간을 보내고 싶은 직장인 <br/>
-    - 추억을 쌓으러 친구들과 함께 여행을 떠나는 대학생 <br/>
-    - 여유롭게 자연을 즐기고 싶은 장년층 <br/>
-    - 누구나 즐길 수 있는 서비스를 원하는 모든 연령층 <br/>
+## 로그인 페이지
 
---------
-
-### 로그인 페이지 - 이수빈(FE)
-
-#### <사용자의 편의성 증대를 위한 카카오 소셜 로그인 API 활용>
+### <사용자의 편의성 증대를 위한 카카오 소셜 로그인 API 활용>
 
 - 가장 대중적인 카카오 소셜 로그인 REST API를 사용하여 사용자의 편의성을 높힘
 - 로그인 과정에서 발생할 수 있는 대기 시간을 적극적으로 활용하기 위해 로딩 마이크로 애니메이션 페이지 추가
 
-### [BE]
-
-- OAuth 2.0의 플로우를 사용한 Kakao RestAPI 방식의 소셜 로그인
-
 ---------------
 
 
-### 리스트 페이지 - 이수빈(FE)
+## 리스트 페이지
 
-#### <사용자 중심의 상품리스트 페이지 설계>
+### <사용자 중심의 상품리스트 페이지 설계>
 
 #### 무한 스크롤
 - 사용자 인터페이스의 부드러움을 최대화하기 위해 무한 스크롤 기능 구현 </br>
@@ -85,11 +89,10 @@ Teammates: 이지은(B), 김준섭(F), 김태원(F), 이수빈(F), 이소진(F)<
 - 사용자의 선택에 따라 인기도 또는 가격순에 따라 상품을 정렬하는 기능을 제공하여, </br>
   더욱 개인화된 사용자 경험을 제공하도록 구현 </br>
 
-### [BE]
 
-- 동적 필터링 구현
-- theme , region , amenity 기준으로 원하는 데이터를 반환
-- 가격순, 인기순으로 쿼리문 구현
+
+
+
 
 
 

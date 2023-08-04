@@ -9,9 +9,13 @@ import { PRODUCT_LIST_API } from '../../../config';
 const ImagesContainer = ({ id, searchParams, campId }) => {
   const [product, setProduct] = useState([]);
   const [hasMore, setHasMore] = useState(true);
-  const [limit, setLimit] = useState(4);
+  const [limit] = useState(8);
   const navigate = useNavigate();
   const queryString = searchParams.toString();
+
+  let timerId;
+
+  const loadedProductIds = new Set();
 
   const fetchProducts = async (offset = 0) => {
     try {
@@ -26,18 +30,42 @@ const ImagesContainer = ({ id, searchParams, campId }) => {
         setHasMore(false);
       }
 
+      const filteredProducts = newProducts.filter(
+        product => !loadedProductIds.has(product.id)
+      );
+
       if (offset === 0) {
-        setProduct(newProducts);
+        setProduct(filteredProducts);
       } else {
-        setProduct(prevProducts => [...prevProducts, ...newProducts]);
+        setProduct(prevProducts => [...prevProducts, ...filteredProducts]);
       }
-    } catch (error) {}
+
+      newProducts.forEach(product => loadedProductIds.add(product.id));
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
   };
 
-  console.log(product);
+  const debouncedFetch = () => {
+    clearTimeout(timerId);
+    timerId = setTimeout(() => {
+      fetchProducts(product.length);
+    }, 500);
+  };
+
+  const handleScroll = () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      debouncedFetch();
+    }
+  };
 
   useEffect(() => {
     fetchProducts();
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [searchParams]);
 
   return (
@@ -126,18 +154,6 @@ const CampPrice = styled.div`
   ${boxSize(280, 30)}
   ${fontMix(14)}
   margin-top: -8px;
-`;
-
-const Background = styled.div`
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background: #ffffffa9;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 `;
 
 const LoadingText = styled.div`

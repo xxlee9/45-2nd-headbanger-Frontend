@@ -11,6 +11,7 @@ import KakaoMapModal from './components/KakaoMapModal';
 import SiteBanner from './components/SiteBanner';
 import { PRODUCT_LIST_API } from '../../../src/config';
 import { flexSort } from '../../styles/mixin';
+import ScrollTop from './components/ScrollTop';
 
 const ProductsList = () => {
   const [product, setProduct] = useState([]);
@@ -63,6 +64,7 @@ const ProductsList = () => {
             searchParams={searchParams}
           />
         </RightSideContainer>
+        <ScrollTop />
       </ContainerAll>
     </Wrap>
   );

@@ -97,10 +97,7 @@ https://github.com/xxslx/45-2nd-headbanger-Frontend/assets/127685269/045cad15-d3
 - 사용자의 선택에 따라 인기도 또는 가격순에 따라 상품을 정렬하는 기능을 제공하여, </br>
   더욱 개인화된 사용자 경험을 제공하도록 구현 </br>
 
-
-
-
-
+<br/>
 
 
 
